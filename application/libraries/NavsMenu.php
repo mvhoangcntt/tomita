@@ -483,7 +483,8 @@ class NavsMenu
   private function set_active($html, $slug)
   {
     $segment = $this->ci->uri->segment($this->uri_segment);
-    if (($this->item_active != '' && $slug == $this->item_active && empty($segment)) || $slug == $segment) {
+    $full_url = site_url(uri_string());
+    if (($this->item_active != '' && $slug == $this->item_active && empty($segment)) || $segment == $slug || $slug == $full_url) {
       $doc = new DOMDocument();
       $doc->loadHTML($html);
 

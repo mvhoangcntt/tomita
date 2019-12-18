@@ -4,8 +4,10 @@ $lang['heading_title']          = 'Danh sách bài viết';
 $lang['heading_title_add']      = 'Thêm sản phẩm';
 $lang['heading_title_edit']     = 'Sửa bài viết';
 
-//Danh sách text
-$lang['form_registration']             = 'Đăng ký nhận ưu đãi hàng tháng';
+// home
+$lang['from_registration']      = 'Đăng ký nhận ưu đãi hàng tháng';
+$lang['from_email']      = 'Địa chỉ email';
+//----
 $lang['form_thumbnail']         = 'Ảnh đại diện';
 $lang['form_status']            = 'Trạng thái';
 $lang['form_featured']          = 'Nổi bật';

@@ -215,7 +215,7 @@ class APS_Model extends CI_Model
     if (!empty($this->table_trans)) $this->db->join($this->table_trans, "$this->table.id = $this->table_trans.id");
     $this->db->where("$this->table.id", $id);
     if (empty($this->table_trans)) {
-      $query = $this->db->get();
+      $query = $this->db->get();var_dump($this->db->last_query()); exit();
       return $query->row();
     }
 

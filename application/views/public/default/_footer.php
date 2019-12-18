@@ -1,18 +1,48 @@
+<section class="new-letter">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <ul class="socials-home">
+                    <li><a href="" title=""><i class="social_facebook"></i></a></li>
+                    <li><a href="" title=""><i class="social_youtube"></i></a></li>
+                    <li><a href="" title=""><i class="social_instagram"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-8">
+                <div class="form-letter">
+                    <span><?php echo lang('from_registration');?></span>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="<?php echo lang('from_email');?>">
+                        <button><img src="<?php echo base_url() ?>public/images/ic-mail.png" alt=""></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php 
+$company = $this->settings['contact'][$this->session->public_lang_code]['company'];
+$address = $this->settings['contact'][$this->session->public_lang_code]['address']; 
+$phone   = $this->settings['contact'][$this->session->public_lang_code]['phone'];
+$mst     = $this->settings['contact'][$this->session->public_lang_code]['mst'];
+$time    = $this->settings['contact'][$this->session->public_lang_code]['time'];
+$phonee  = $this->settings['contact'][$this->session->public_lang_code]['phonee'];
+?>
 <footer>
 	<div class="footer-top">
 	    <div class="container">
 	        <div class="row">
 	            <div class="col-lg-5">
 	                <div class="ft-info">
-	                    <h3 class="title"><?php echo $this->settings['contact'][$this->session->public_lang_code]['company']; ?></h3>
+	                    <h3 class="title"><?php echo !empty($company)? $company : ''; ?></h3>
 	                    <ul>
-	                        <li><i class="icon_pin"></i><?php echo $this->settings['contact'][$this->session->public_lang_code]['address']; ?></li>
+	                        <li><i class="icon_pin"></i><?php echo !empty($address)? $address : ''; ?></li>
 
-	                        <li><i class="icon_phone"></i><a href="<?php echo $this->settings['contact'][$this->session->public_lang_code]['phone']; ?>" title=""><?php echo $this->settings['contact'][$this->session->public_lang_code]['phone']; ?></a></li>
+	                        <li><i class="icon_phone"></i><a href="<?php echo !empty($phone)? $phone : ''; ?>" title=""><?php echo !empty($phone)? $phone : ''; ?></a></li>
 
-	                        <li><i class="icon_documents"></i><?php echo $this->settings['contact'][$this->session->public_lang_code]['mst']; ?></li>
+	                        <li><i class="icon_documents"></i><?php echo !empty($mst)? $mst : ''; ?></li>
 
-	                        <li><i class="icon_mobile"></i><a href="<?php echo $this->settings['contact'][$this->session->public_lang_code]['time']; ?>" title=""><?php echo $this->settings['contact'][$this->session->public_lang_code]['time']; ?> - <a href="<?php echo $this->settings['contact'][$this->session->public_lang_code]['phonee']; ?>" title=""><?php echo $this->settings['contact'][$this->session->public_lang_code]['phonee']; ?></a></li>
+	                        <li><i class="icon_mobile"></i><a href="<?php echo !empty($time)? $time : ''; ?>" title="<?php echo !empty($time)? $time : ''; ?>"><?php echo !empty($time)? $time : ''; ?> - <a href="<?php echo !empty($phonee)? $phonee : ''; ?>" title=""><?php echo !empty($phonee)? $phonee : ''; ?></a></li>
 	                    </ul>
 	                </div>
 	            </div>

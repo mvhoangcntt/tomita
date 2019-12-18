@@ -1,23 +1,18 @@
-$brand-primary:         #ffddcc;
-$brand-secondary:       #fea200;
-$color-primary:         #513781;
-$color-secondary:       #777777;
-$color-hv:              #ae085a;
+$f1: 'AvenirNext', sans-serif;
+$f2: 'UTM-Avo', sans-serif;
+$f3: 'AcuminPro', sans-serif;
 
-$font-family-base: 'TUV-Montserrat', sans-serif;
-$font-family-base2: 'OpenSans', sans-serif;
-// ..........
-$f1: $font-family-base;
-$f2: $font-family-base2;
+$c1: #0b9444;
+$c2: #154617;
+$c3: #144517;
+$c-text: #1c231c;
+$c-text2: #1b1b1b;
+$c-bd: #cccccc;
+$bg1: linear-gradient(to bottom, #3d9325 , #187d3e);
+$bg2: linear-gradient(to bottom, #53a03c , #154617);
+$bg3: #ececec;
+$bg4: #e0e0e0;
 
-$f3: 'Arial';
-
-$c1: $brand-primary;
-$c2: $brand-secondary;
-$color_text: $color-primary;
-$color_text1: #f15722;
-$color_text2: #ed806c;
-$bg1 : #f9f6f4;
 
 $c-facebook: #3b5998;
 $c-google: #d62d20;
@@ -242,6 +237,11 @@ $media:
 @mixin s-content{
     .s-content{
         word-break: break-word;
+        font-family: $f3;
+        font-size: 16px;
+        @media (max-width: 991px) {
+           font-size: 14px; 
+        }
         a[href]{
             color: #007bff;
             &:hover{

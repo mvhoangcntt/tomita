@@ -14,7 +14,75 @@
         <?php foreach ($this->config->item('cms_language') as $lang_code => $lang_name) { ?>
             <div class="tab-pane <?php echo ($lang_code == 'vi') ? 'active' : ''; ?>" id="tab1_<?php echo $lang_code; ?>">
                 <div class="box-body">
-
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Hình slide 1 :</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon" onclick="chooseImage('home1')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
+                                <input id="home1"
+                                onclick="chooseImage('home1')" 
+                                name="home[<?php echo $lang_code; ?>][image_home1]" 
+                                placeholder="Ảnh slide 1" class="form-control" 
+                                type="text" 
+                                value="<?php echo isset($home[$lang_code]['image_home1']) ? $home[$lang_code]['image_home1'] : ''; ?>"/>
+                                <span class="input-group-addon" style="padding: 0;">
+                                    <a href="<?php echo getImageThumb(isset($home[$lang_code]['image_home1']) ? $home[$lang_code]['image_home1'] : ''); ?>" class="fancybox"><img src="<?php echo getImageThumb(isset($home[$lang_code]['image_home1']) ? $home[$lang_code]['image_home1'] : ''); ?>" width="44" height="44"></a></span>
+                            </div>
+                            <label>Title :</label>
+                            <textarea id="content_<?php echo $lang_code;?>" name="home[<?php echo $lang_code; ?>][title1]" placeholder="Giới thiệu" class="tinymce form-control" rows="10"><?php echo isset($home[$lang_code]['title1']) ? $home[$lang_code]['title1'] : ''; ?></textarea>
+                            <label>Href :</label>
+                            <input name="home[<?php echo $lang_code; ?>][home_link1]"
+                               placeholder="Link đường dẫn"
+                               class="form-control" type="text"
+                               value="<?php echo !empty($home[$lang_code]['home_link1']) ? $home[$lang_code]['home_link1'] : ''; ?>"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Hình slide 2 :</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon" onclick="chooseImage('home2')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
+                                <input id="home2" 
+                                onclick="chooseImage('home2')" 
+                                name="home[<?php echo $lang_code; ?>][image_home2]" 
+                                placeholder="Ảnh slide 2" class="form-control" 
+                                type="text" 
+                                value="<?php echo isset($home[$lang_code]['image_home2']) ? $home[$lang_code]['image_home2'] : ''; ?>"/>
+                                <span class="input-group-addon" style="padding: 0;">
+                                    <a href="<?php echo getImageThumb(isset($home[$lang_code]['image_home2']) ? $home[$lang_code]['image_home2'] : ''); ?>" class="fancybox"><img src="<?php echo getImageThumb(isset($home[$lang_code]['image_home2']) ? $home[$lang_code]['image_home2'] : ''); ?>" width="44" height="44"></a></span>
+                            </div>
+                            <label>Title :</label>
+                            <textarea id="content_<?php echo $lang_code;?>" name="home[<?php echo $lang_code; ?>][title2]" placeholder="Giới thiệu" class="tinymce form-control" rows="10"><?php echo isset($home[$lang_code]['title2']) ? $home[$lang_code]['title2'] : ''; ?></textarea>
+                            <label>Href :</label>
+                            <input name="home[<?php echo $lang_code; ?>][home_link2]"
+                               placeholder="Link đường dẫn"
+                               class="form-control" type="text"
+                               value="<?php echo !empty($home[$lang_code]['home_link2']) ? $home[$lang_code]['home_link2'] : ''; ?>"/>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Hình slide 3 :</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon" onclick="chooseImage('home3')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
+                                <input id="home3" 
+                                onclick="chooseImage('home3')" 
+                                name="home[<?php echo $lang_code; ?>][image_home3]" 
+                                placeholder="Ảnh slide 3" class="form-control" 
+                                type="text" 
+                                value="<?php echo isset($home[$lang_code]['image_home3']) ? $home[$lang_code]['image_home3'] : ''; ?>"/>
+                                <span class="input-group-addon" style="padding: 0;">
+                                    <a href="<?php echo getImageThumb(isset($home[$lang_code]['image_home3']) ? $home[$lang_code]['image_home3'] : ''); ?>" class="fancybox"><img src="<?php echo getImageThumb(isset($home[$lang_code]['image_home3']) ? $home[$lang_code]['image_home3'] : ''); ?>" width="44" height="44"></a></span>
+                            </div>
+                            <label>Title :</label>
+                            <textarea id="content_<?php echo $lang_code;?>" name="home[<?php echo $lang_code; ?>][title3]" placeholder="Giới thiệu" class="tinymce form-control" rows="10"><?php echo isset($home[$lang_code]['title3']) ? $home[$lang_code]['title3'] : ''; ?></textarea>
+                            <label>Href :</label>
+                            <input name="home[<?php echo $lang_code; ?>][home_link3]"
+                               placeholder="Link đường dẫn"
+                               class="form-control" type="text"
+                               value="<?php echo !empty($home[$lang_code]['home_link3']) ? $home[$lang_code]['home_link3'] : ''; ?>"/>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

@@ -1,4 +1,3 @@
-<?php $controller = $this->router->fetch_class(); ?>
 <header>
     <div class="container">
         <div class="wrap-header">
@@ -8,22 +7,15 @@
                     <div class="logo-mb">
                         <a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>public/images/logo.png"></a>
                     </div>
-                    <ul>
-                        <li <?php if($controller == 'home'){echo 'class="active"';} ?> ><a class="smooth" href="<?php echo base_url() ?>" title="">Trang chủ</a></li>
-                        <li <?php if($controller == 'about'){echo 'class="active"';} ?>><a class="smooth" href="<?php echo base_url() ?>about/index" title="">về chúng tôi</a>
-                            <!-- <ul>
-                                <li><a class="smooth" href="#" title="">Menu 1 1</a></li>
-                                <li><a class="smooth" href="#" title="">Menu 1 2</a></li>
-                                <li><a class="smooth" href="#" title="">Menu 1 3</a></li>
-                                <li><a class="smooth" href="#" title="">Menu 1 4</a></li>
-                                <li><a class="smooth" href="#" title="">Menu 1 5</a></li>
-                            </ul> -->
-                        </li>
-                        <li <?php if($controller == 'members'){echo 'class="active"';} ?>><a class="smooth" href="<?php echo base_url() ?>members/index" title="">Sở hữu các thương hiệu</a></li>
-                        <li <?php if($controller == 'media_library'){echo 'class="active"';} ?>><a class="smooth" href="<?php echo base_url() ?>media_library/index" title="">thư viện</a></li>
-                        <li <?php if($controller == 'news'){echo 'class="active"';} ?>><a class="smooth" href="<?php echo base_url() ?>news/index" title="">tin tức</a></li>
-                        <li <?php if($controller == 'contact'){echo 'class="active"';} ?>><a class="smooth" href="<?php echo base_url() ?>contact/index" title="">liên hệ</a></li>
-                    </ul>
+                    <?php echo topNavBar('','',''); ?>
+                    <!-- <ul>
+                        <li class="active"><a class="smooth" href="<?php echo base_url() ?>home/" title="">Trang chủ</a></li>
+                        <li><a class="smooth" href="<?php echo base_url() ?>about/" title="">về chúng tôi</a></li>
+                        <li><a class="smooth" href="<?php echo base_url() ?>members/" title="">Sở hữu các thương hiệu</a></li>
+                        <li><a class="smooth" href="<?php echo base_url() ?>media_library/" title="">thư viện</a></li>
+                        <li><a class="smooth" href="<?php echo base_url() ?>news/" title="">tin tức</a></li>
+                        <li><a class="smooth" href="<?php echo base_url() ?>contact/" title="">liên hệ</a></li>
+                    </ul> -->
                 </nav>
                 
                 <div class="header-crt">

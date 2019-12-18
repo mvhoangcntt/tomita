@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Hình slide</label>
+                                        <label>Hình banner 670 x 300(px)</label>
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-addon" onclick="chooseImage('gioithieu')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
                                             <input id="gioithieu" 
@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Hình banner</label>
+                                        <label>Hình banner 1170 x 360(px)</label>
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-addon" onclick="chooseImage('tamnhin')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
                                             <input id="tamnhin" 
@@ -63,6 +63,7 @@
                                             <span class="input-group-addon" style="padding: 0;">
                                                 <a href="<?php echo getImageThumb(isset($about[$lang_code]['image_tamnhin']) ? $about[$lang_code]['image_tamnhin'] : ''); ?>" class="fancybox"><img src="<?php echo getImageThumb(isset($about[$lang_code]['image_tamnhin']) ? $about[$lang_code]['image_tamnhin'] : ''); ?>" width="44" height="44"></a></span>
                                         </div>
+                                        <textarea id="content_<?php echo $lang_code;?>" name="about[<?php echo $lang_code; ?>][tamnhin1]" placeholder="Giới thiệu" class="tinymce form-control" rows="10"><?php echo isset($about[$lang_code]['tamnhin1']) ? $about[$lang_code]['tamnhin1'] : ''; ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +76,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Hình banner</label>
+                                        <label>Hình banner 1170 x 360(px)</label>
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-addon" onclick="chooseImage('sumenh')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
                                             <input id="sumenh" 
@@ -100,7 +101,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                    <div class="form-group">
-                                        <label>Hình banner</label>
+                                        <label>Hình banner 1170 x 360(px)</label>
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-addon" onclick="chooseImage('cotloi')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
                                             <input id="cotloi" 

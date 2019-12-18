@@ -60,8 +60,10 @@ $lang['text_product_amount']              = 'Số lượng';
 $lang['text_product_gift']              = 'Giảm giá';
 $lang['text_product_total_price']              = 'Tổng số tiền';
 $lang['text_product_thumbnail']              = 'Hình ảnh';
-
-
+// --- home ---
+$lang['text_myself'] = 'về chúng tôi';
+// --- about ---
+// $lang['text_myself'] = 'về chúng tôi';
 //Tab panel
 $lang['tab_language']            = 'Ngôn ngữ';
 

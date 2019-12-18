@@ -1577,3 +1577,10 @@
 .slideOutUp {
   animation-name: slideOutUp;
 }
+#tabs3 .item-ab > h3{
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #144517;
+  margin-bottom: 3px;
+}

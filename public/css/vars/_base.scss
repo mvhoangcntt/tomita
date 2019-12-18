@@ -1,19 +1,50 @@
 
 @font-face {
-	font-family: 'TUV-Montserrat';
-	src: url('../fonts/TUV-Montserrat/TUV-Montserrat-Regular.ttf') format('truetype');
-	font-weight: 400;
+	font-family: 'AvenirNext';
+	src: url('../fonts/AvenirNext-Italic.ttf') format('truetype');
+	font-weight: 300;
 }
 @font-face {
-	font-family: 'TUV-Montserrat';
-	src: url('../fonts/TUV-Montserrat/TUV-Montserrat-Bold.ttf') format('truetype');
+	font-family: 'AvenirNext';
+	src: url('../fonts/AvenirNext-Bold.ttf') format('truetype');
 	font-weight: bold;
 }
 @font-face {
-	font-family: 'TUV-Montserrat';
-	src: url('../fonts/TUV-Montserrat/Montserrat-Light.ttf') format('truetype');
+	font-family: 'AvenirNext';
+	src: url('../fonts/AvenirNext-Regular.ttf') format('truetype');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'AvenirNext';
+	src: url('../fonts/AvenirNext-Medium.ttf') format('truetype');
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'AvenirNext';
+	src: url('../fonts/AvenirNext-DemiBold.ttf') format('truetype');
+	font-weight: 800;
+}
+@font-face {
+	font-family: 'UTM-Avo';
+	src: url('../fonts/UTM-AvoItalic.ttf') format('truetype');
 	font-weight: 300;
 }
+@font-face {
+	font-family: 'UTM-Avo';
+	src: url('../fonts/UTM-Avo.ttf') format('truetype');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'AcuminPro';
+	src: url('../fonts/AcuminPro-Regular.ttf') format('truetype');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'AcuminPro';
+	src: url('../fonts/AcuminPro-Bold.ttf') format('truetype');
+	font-weight: bold;
+}
+
 
 object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, 
 ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
@@ -68,6 +99,7 @@ img{max-width: 100%;vertical-align: middle;object-fit: cover;}
 .col-mar-0{@include col-mar(0px);}
 .col-mar-5{@include col-mar(5px);}
 .col-mar-8{@include col-mar(8px);}
+.col-mar-9{@include col-mar(9px);}
 .col-mar-10{@include col-mar(10px);}
 
 .fx-mid{align-items: center;}
@@ -101,11 +133,11 @@ img{max-width: 100%;vertical-align: middle;object-fit: cover;}
 	@include smooth(.2s);
 	@include bfhide();
 }
-.container{
-	max-width: 1212px;
-}
-@media all and (max-width: 1199px){
-	
+
+@media all and (min-width: 1200px){
+	.container{
+		max-width: 1200px;
+	}
 }
 
 @media all and (max-width: 991px){

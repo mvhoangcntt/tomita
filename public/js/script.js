@@ -218,251 +218,162 @@ jQuery(function($) {
             });
         },
         slider: function() {
-            $('.slide-home').owlCarousel({
-                loop: true,
-                smartSpeed: 1000,
-                /*animateOut: 'fadeOut',
-                animateIn: 'fadeIn',*/
-                margin: 0,
-                dots: true,
-                /*autoHeight: true,*/
-                autoplayHoverPause: true,
-                nav: false,
-                /*navText: ["<span class='arrow_carrot-left'></span>", "<span>Next</span>"],
-                navClass: ["slide-prev", "slide-next"],*/
-                items: 1,
-                autoplay: false,
-                autoplayTimeout: 5000,
-                onChanged: slider_change,
-            });
+            /*$('.slider-cas').slick({
+            	nextArrow: '<img src="images/next.png" class="next" alt="Next">',
+            	prevArrow: '<img src="images/prev.png" class="prev" alt="Prev">',
+            })
+            FU.animate($(".slider-cas .slick-current [data-animation ^= 'animated']"));
+            $('.slider-cas').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            	if(currentSlide!=nextSlide){
+            		var aniElm = $(this).find('.slick-slide').find("[data-animation ^= 'animated']");
+            		FU.animate(aniElm);
+            	}
+            });*/
 
-            function slider_change(e) {
-                var aniElm = $('.slide-home .owl-item').eq(e.item['index']).find("[data-animation ^= 'animated']");
-                FU.animate(aniElm);
-            };
-            $('.sl-prd-home').owlCarousel({
-                loop: true,
-                smartSpeed: 1000,
+            /*$('.pro-cas').slick({
+	            slidesToShow: 4,
+	            slidesToScroll: 1,
+	            nextArrow: '<i class="cas-arrow smooth next"></i>',
+	            prevArrow: '<i class="cas-arrow smooth prev"></i>',
+	            dots: true,
+	            autoplay: true,
+	            swipeToSlide: true,
+	            autoplaySpeed: 4000,
+	            responsive: [
+	            {
+	                breakpoint: 1199,
+	                settings: {
+	                    slidesToShow: 3,
+	                }
+	            },
+	            {
+	                breakpoint: 991,
+	                settings: {
+	                    slidesToShow: 3,
+	                }
+	            },
+	            {
+	                breakpoint: 700,
+	                settings: {
+	                    slidesToShow: 2,
+	                }
+	            },
+	            {
+	                breakpoint: 480,
+	                settings: {
+	                    slidesToShow: 1,
+	                }
+	            }
+	            ],
+	        })*/
+
+            $('.sl-home').owlCarousel({
+                items: 1,
+		        loop: true,
                 animateOut: 'fadeOut',
                 animateIn: 'fadeIn',
-                margin: 0,
-                dots: true,
-                /*autoHeight: true,*/
-                autoplayHoverPause: true,
+                responsiveClass: true,
                 nav: false,
-                navText: ["<i class='arrow_triangle-left'></i>", "<i class='arrow_triangle-right'></i>"],
-                navClass: ["slide-prev", "slide-next"],
+                dots: true,
+                autoplay: true,
+                autoPlaySpeed: 8000,
+                autoplayTimeout: 8000,
+                smartSpeed: 800,
+                /*navClass: ["sl-arrow prev", "sl-arrow next"],
+                navText: ["<i class='arrow_left_alt'></i>", "<i class='arrow_right_alt'></i>"],*/
+                onChanged: slider_change,
+		    })
+            function slider_change(e) {
+                var aniElm = $('.sl-home .owl-item').eq(e.item['index']).find("[data-animation ^= 'animated']");
+                FU.animate(aniElm);
+            }
+
+            var member = $('.member-cas').owlCarousel({
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                loop: true,
+                responsiveClass:true,
+                nav: true,
+                smartSpeed: 100,
                 items: 1,
+                margin: 0,
+                navText: ["<span class='smooth arrow-cas prev'></span>", "<span class='smooth arrow-cas next'></span>"],
+                onChanged: callback,
+                // onInitialized: business_load,
+            })
+            function callback(event) {
+                if(event.page['index'] != '-1'){
+                    $('.member-list .item.active').removeClass('active');
+                    $('.member-list .item').eq(event.page['index']).addClass('active');
+                }
+            }
+            $('.member-list .item').click(function(e) {
+                e.preventDefault();
+                var this_ = $(this);
+                $('.member-list .item.active').removeClass('active');
+                this_.addClass('active');
+                member.trigger('to.owl.carousel', this_.index());
+            });
+            // end member carousel
+
+
+            $('.cas-gallery').owlCarousel({
+                loop: false,
+                margin: 30,
+                dots: false,
+                nav: true,
+                navText: ["<span class='smooth arrow-cas prev'></span>", "<span class='smooth arrow-cas next'></span>"],
                 autoplay: false,
                 autoplayTimeout: 5000,
+                smartSpeed: 800,
                 responsiveClass: true,
                 responsive: {
-                    991: {
-                        nav: true,
-                    },
-
                     0: {
-                        nav: false,
-                    }
-                },
-            });
-
-            var len = Math.ceil($('.sl-prd-sale').children().length / 4),
-                index = 1;
-            if ($(window).width() < 1200) {
-                var len = Math.ceil($('.sl-prd-sale').children().length / 3)
-            }
-            if ($(window).width() < 992) {
-                var len = Math.ceil($('.sl-prd-sale').children().length / 2)
-            }
-            if ($(window).width() < 480) {
-                var len = Math.ceil($('.sl-prd-sale').children().length)
-            }
-            //console.log(len);
-            $('.sl-prd-sale').owlCarousel({
-                loop: false,
-                responsiveClass: true,
-                nav: true,
-                dots: true,
-                smartSpeed: 500,
-                margin: 30,
-                autoplay: true,
-                slideBy: 4,
-                autoplayTimeout: 5000,
-                navClass: ["slide-prev", "slide-next"],
-                navText: ["<i class='arrow_triangle-left'></i>", "<i class='arrow_triangle-right'></i>"],
-                responsive: {
-                    1199: {
-                        items: 4,
-                        slideBy: 4,
+                        items: 1,
+                        stagePadding: 30,
+                        margin: 10,
                     },
-                    991: {
+                    450: {
+                        items: 2,
+                    },
+                    768: {
                         items: 3,
-                        slideBy: 3,
                     },
-                    479: {
-                        items: 2,
-                        slideBy: 2,
-                    },
-                    0: {
-                        items: 1,
-                        slideBy: 1,
-                    }
-                },
-                onTranslate: slide_callback,
-            });
-
-            function add0(num) {
-                var num = Number(num);
-                if (num < 10) num = num;
-                return num;
-            };
-            $('.sl-prd-sale').after('<div class="slider-nums"><strong>' + add0(index) + '</strong> / <span>' + add0(len) + '</span></div>');
-
-            function slide_callback(e) {
-                setTimeout(function() {
-                    $('.slider-nums').find('strong').text(add0(e.page.index + 1));
-                }, 100)
-            }
-
-            $('.sl-blog-home').owlCarousel({
-                loop: false,
-                responsiveClass: true,
-                nav: true,
-                dots: false,
-                smartSpeed: 500,
-                margin: 10,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                navClass: ["slide-prev", "slide-next"],
-                navText: ["<i class='arrow_triangle-left'></i>", "<i class='arrow_triangle-right'></i>"],
-                responsive: {
                     1199: {
-                        items: 2,
+                        items: 3,
                     },
-                    991: {
-                        items: 2,
-                    },
-
-                    479: {
-                        items: 1,
-                    },
-                    0: {
-                        items: 1,
+                    1366: {
+                        items: 3,
                     }
                 }
             });
-            $('.sl-branch-home').owlCarousel({
+            $('.cas-member').owlCarousel({
                 loop: false,
                 responsiveClass: true,
                 nav: true,
                 dots: false,
+                dotsClass: 'dots',
                 smartSpeed: 500,
                 margin: 30,
-                autoplay: true,
+                autoplay: false,
                 autoplayTimeout: 5000,
-                navClass: ["slide-prev", "slide-next"],
-                navText: ["<i class='arrow_triangle-left'></i>", "<i class='arrow_triangle-right'></i>"],
+                navClass: ["slide-icon prev", "slide-icon next"],
+                navText: ["<i class='arrow_left_alt'></i>", "<i class='arrow_right_alt'></i>"],
                 responsive: {
                     1199: {
                         items: 5,
                     },
                     991: {
-                        items: 3,
+                        items: 4,
                     },
-
-                    479: {
-                        items: 2,
+                    768: {
+                        items: 3,
                     },
                     0: {
-                        items: 2,
-                    }
-                }
-            });
-            $('.sl-proDt').owlCarousel({
-                loop: true,
-                smartSpeed: 1000,
-                /*animateOut: 'fadeOut',
-                animateIn: 'fadeIn',*/
-                margin: 0,
-                dots: true,
-                /*autoHeight: true,*/
-                autoplayHoverPause: true,
-                nav: true,
-                navClass: ["slide-prev", "slide-next"],
-                navText: ["<i class='arrow_triangle-left'></i>", "<i class='arrow_triangle-right'></i>"],
-                items: 1,
-                autoplay: false,
-                autoplayTimeout: 5000,
-            });
-            /*$('.slider-cas').slick({
-                nextArrow: '<img src="images/next.png" class="next" alt="Next">',
-                prevArrow: '<img src="images/prev.png" class="prev" alt="Prev">',
-            })
-            FU.animate($(".slider-cas .slick-current [data-animation ^= 'animated']"));
-            $('.slider-cas').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-                if(currentSlide!=nextSlide){
-                    var aniElm = $(this).find('.slick-slide').find("[data-animation ^= 'animated']");
-                    FU.animate(aniElm);
-                }
-            });*/
-
-            /*$('.pro-cas').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                nextArrow: '<i class="cas-arrow smooth next"></i>',
-                prevArrow: '<i class="cas-arrow smooth prev"></i>',
-                dots: true,
-                autoplay: true,
-                swipeToSlide: true,
-                autoplaySpeed: 4000,
-                responsive: [
-                {
-                    breakpoint: 1199,
-                    settings: {
-                        slidesToShow: 3,
-                    }
-                },
-                {
-                    breakpoint: 991,
-                    settings: {
-                        slidesToShow: 3,
-                    }
-                },
-                {
-                    breakpoint: 700,
-                    settings: {
-                        slidesToShow: 2,
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                    }
-                }
-                ],
-            })*/
-
-            /*$('.pro-cas').owlCarousel({
-                loop: true,
-                margin: 30,
-                responsiveClass:true,
-                nav: true,
-                smartSpeed: 800,
-                navText: ["<span class='smooth arrow-cas prev'></span>", "<span class='smooth arrow-cas next'></span>"],
-                responsive:{
-                    992:{
                         items: 3,
-                    },
-                    768:{
-                        items: 2,
-                    },
-                    0:{
-                        items: 1,
                     }
                 }
-            })*/
+            });
         },
         input_number: function() {
             doc.on('keydown', '.numberic', function(event) {
@@ -600,24 +511,14 @@ jQuery(function($) {
                 }
             }
         },
-        sticky: function () {
-            if ($(window).width() > 991) {
-                if ($('.sb-product,.sb-checkout').length > 0) {
-                    $('.sb-product,.sb-checkout').stick_in_parent({
-                        offset_top: 100
-                    });
-                }
-            }
-        },
         ready: function() {
-            UI.mMenu();
+            //UI.mMenu();
             //UI.header();
             UI.slider();
             UI.backTop();
             // UI.toggle();
-            UI.input_number();
+            //UI.input_number();
             //UI.uiCounterup();
-            UI.sticky();
             // UI.yt_play();
             // UI.psy();
         },
@@ -628,135 +529,77 @@ jQuery(function($) {
 
 
     /*custom here*/
-
-    WOW.prototype.addBox = function(element) {
-        this.boxes.push(element);
-    };
-    var wow = new WOW({
-        mobile: false
-    });
-    wow.init();
-    if ($(window).width() > 991) {
-        $('.wow').on('scrollSpy:exit', function() {
-            $(this).css({
-                'visibility': 'hidden',
-                'animation-name': 'none'
-            }).removeClass('animated');
-            wow.addBox(this);
-        }).scrollSpy();
-    }
-
-    $('.mb-nav').hc_menu({
-        open: '.icon-menu',
+    $('.d-nav').hc_menu({
+        open: '.open-mnav',
+    })
+    $('.ic-search').click(function(event) {
+        $(this).children('i').toggleClass('fa-search fa-close');
+        $('.header-search .form-search').toggleClass('show');
     });
     //menu header scroll
     $(window).scroll(function() {
         if ($(window).scrollTop() > 0) $('header').addClass('scroll');
         else $('header').removeClass('scroll toggle-menu');
     });
-    if ($(window).width() > 1199) {
-        $('.icon-menu').click(function() {
-            $('header').removeClass('scroll').addClass('toggle-menu');
-        });
-    }
-    $('.icon-search-mb').click(function(event) {
-        $(this).children('i').toggleClass('icon_search icon_close');
-        $('header .hd-center').toggleClass('show');
-    });
-
-    $('.ft-item .head').click(function(event) {
-        $(this).children('span').toggleClass('icon_plus icon_minus-06');
-        $(this).next('.ft-mb').slideToggle();
-    });
-    $('.sb-title').click(function(event) {
-        $(this).children('i').toggleClass('arrow_triangle-up arrow_triangle-down');
-        $(this).next('.sb-ct').slideToggle(300);
-        $(this).next().next('.readmore').slideToggle(300);
-    });
-
-    $("#slider-range").each(function() {
-        var get_currency = function(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    if ($(window).width() > 991) {
+        if ($('.sb-news').length > 0) {
+            $('.sb-news').stick_in_parent({
+                offset_top: 110,
+            });
         }
-        var this_ = $(this);
-
-        var min = parseInt(this_.attr('data-min'));
-
-        var max = parseInt(this_.attr('data-max'));
-        var valu = this_.attr('data-value').split(",");
-        var rang = max - min;
-
-        this_.slider({
-            range: true,
-            min: min,
-            max: max,
-            values: valu,
-            slide: function(event, ui) {
-                var left1 = (ui.values[0] - min) / rang * 100;
-                var price1 = this_.prevAll('.price-1').text(get_currency(ui.values[0]));
-                var left2 = 100 - (ui.values[1] - min) / rang * 100;
-                var price2 = this_.prevAll('.price-2').text(get_currency(ui.values[1]));
-                price1.trigger('change');
-                price2.trigger('change');
-
+    }
+    /*if($("[data-fancybox]").length){
+        $("[data-fancybox]").fancybox({
+            thumbs : {
+                autoStart : true,
+                axis      : 'x'
             }
-        });
-
-        var left1 = (this_.slider("values", 0) - min) / rang * 100;
-        this_.prevAll('.price-1').text(get_currency(this_.slider("values", 0)));
-        var left2 = 100 - (this_.slider("values", 1) - min) / rang * 100;
-        this_.prevAll('.price-2').text(get_currency(this_.slider("values", 1)));
-    });
-
-    $('.sb-item .readmore').on('click', function () {
-        var txt = $(".over.show").is(':visible') ? '<i class="arrow_carrot-down"></i>' + "more" : '<i class="arrow_carrot-up"></i>' + "less";
-        $(this).html(txt);
-        $(this).prev('.over').toggleClass('show');
-        /*$(".over.show").is(':visible') ? $(this).attr('href','javascript:;') : $(this).attr('href','#prj-tq') ;*/
-    });
-    $('.ctrl-head .sort .label').click(function(event) {
-        $(this).children('i').toggleClass('arrow_triangle-up arrow_triangle-down');
-        $(this).next('ul').toggleClass('show');
-    });
-    $('.filter-btn').click(function(e) {
-        e.preventDefault();
-        if($('.sb-product').hasClass('active')){
-            $('.sb-product').removeClass('active');
-            $('.filter-over').remove();
-        }
-        else{
-            $('.sb-product').addClass('active');
-            $('body').append('<div class="filter-over"></div>');
+        })
+    }*/
+})
+function initMap() {
+    // to the map type control.
+    var map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 21.0310908, lng: 105.768407 },
+        zoom: 18,
+        scrollwheel: false,
+        mapTypeControlOptions: {
+            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                'styled_map'
+            ]
         }
     });
-    $('body').on('click', '.filter-over', function(e) {
-        e.preventDefault();
-        $('.sb-product').removeClass('active');
-        $('.filter-over').remove();
-    });
-    $('.sb-ct ul li a').click(function(event) {
-        $(this).parent('li').toggleClass('active');
-    });
-    if($(window).width()<992){
-        $('.sb-account .top-sb').click(function(event) {
-            $('.sb-account ul').slideToggle(300);
-            $(this).children().children('i').toggleClass('arrow_triangle-up arrow_triangle-down');
-        });
-    }
-    $('.dropdown-menu li').on('click', function() {
-        var getValue = $(this).html();
-        $('.dropdown-select').html(getValue);
-        $('.dropdown-menu li').removeClass('active');
-        $(this).addClass('active');
-    });
-    $('.btn-remove').click(function(event) {
-        $(this).parent('.item-cart').remove();
-    });
-    $('.item-wishlist .btn-remove').click(function(event) {
-        $(this).parent().parent().remove();
-    });
 
-    if($('.datepicker').length>0){
-        $('.datepicker').datepicker();
-    } 
-});
+    //Associate the styled map with the MapTypeId and set it to display.
+    var myMarker = new google.maps.Marker({
+        position: { lat: 21.0310908, lng: 105.768407 },
+        map: map,
+        title: "Apecsoft",
+        //icon: "images/icon-map.png",
+        label: {
+            color: 'red',
+            fontWeight: '400',
+            fontSize: '16px',
+            text: 'Tomita Farm',
+
+        },
+        icon: {
+            labelOrigin: new google.maps.Point(11, 70),
+            url: 'public/images/icon-map.png',
+            size: new google.maps.Size(38, 54),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(11, 40),
+        },
+    });
+    var contentString = '<div id="content" style="max-width: 250px;">' +
+        '<h1 style="font-size:14px;color:#01b1e0;font-weight:500;text-align: center;">Địa chỉ: Tầng 3, TTTM CTM Complex Cầu Giấy, 139 Cầu Giấy, Hà Nội</h1>' +
+        '<span style="float:left;font-size:13px;color:#2e2e2e;width: 100%; text-align: center;font-weight:500;margin-top: 10px;">Phone: 0969.001.511</span>' +
+        '</div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+    myMarker.addListener('click', function() {
+        infowindow.open(map, myMarker);
+    });
+}
