@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2019 at 05:54 AM
+-- Generation Time: Dec 28, 2019 at 05:49 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -157,7 +157,9 @@ INSERT INTO `ap_category` (`id`, `parent_id`, `thumbnail`, `banner`, `is_feature
 (104, 102, 'pro1.jpg', '', NULL, NULL, '', '', 'master', 2, 1, '2019-02-13 17:01:47', '2019-03-02 21:24:20', '', '', NULL, NULL, NULL, NULL, 'hehee'),
 (105, 0, '', '', NULL, NULL, '', '', 'video', 1, 1, '2019-02-16 05:18:05', '2019-02-19 18:35:32', '', '', NULL, NULL, NULL, NULL, NULL),
 (107, 0, '', '', NULL, NULL, 'career', '', 'post', 4, 1, '2019-03-02 21:46:32', '2019-03-02 21:46:32', '', '', NULL, NULL, NULL, NULL, ''),
-(108, 0, '', '', NULL, NULL, '', '', 'post', 5, 1, '2019-06-05 21:04:18', '2019-06-05 21:04:18', '', '', NULL, NULL, NULL, NULL, '');
+(108, 0, 'img-about2.jpg', '', NULL, NULL, '', '', 'post', 6, 0, '2019-06-05 21:04:18', '2019-12-26 08:50:23', '', '', NULL, NULL, NULL, NULL, ''),
+(109, 0, 'thumb/sl-home2-1920x880.jpg', NULL, NULL, NULL, '', '', 'news', 0, 1, '2019-12-23 14:34:23', '2019-12-25 17:57:53', '', '', NULL, NULL, NULL, NULL, ''),
+(110, 0, '', NULL, NULL, NULL, 'news', 'news', 'news', 5, 1, '2019-12-23 16:20:39', '2019-12-25 17:57:53', '', '', NULL, NULL, NULL, NULL, 'f vd f');
 
 -- --------------------------------------------------------
 
@@ -183,7 +185,11 @@ CREATE TABLE `ap_category_translations` (
 
 INSERT INTO `ap_category_translations` (`id`, `language_code`, `title`, `description`, `slug`, `meta_title`, `meta_description`, `meta_keyword`, `content`) VALUES
 (108, 'en', 'àdasdfasdfasdf', 'àdasdfasdfasdf', 'adasdfaàdasdfasdfasdfsdfasdf', 'àdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdf', 'àdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdfàdasdfasdfasdf', 'àdasdfasdfasdf', ''),
-(108, 'vi', 'dddd', 'ddddd', 'dddd', 'dddddddddddddddddddddddddddddddddddddddddddđ', 'dddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđ', 'ddddddddddddddd', '');
+(108, 'vi', 'dddd', 'ddddd', 'dddd', 'dddddddddddddddddddddddddddddddddddddddddddđ', 'dddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđdddddddddddddddddđ', 'ddddddddddddddd', ''),
+(109, 'en', 'we  er te rt', ' d gf d fg df', 'a', ' dv f vd fb ', 'df b df b d', ' dv df  dfb', 'dfsdf'),
+(109, 'vi', 'Tin chung', ' d gf d fg df', 'a', 'dv f vd fb', 'df b df b d', ' dv df  dfb', 'dfsdf'),
+(110, 'en', ' v fb d gb fg ', ' df b f bd b df ', 'v-fb-d-gb-fg', ' fd fv df b d fb df b df bd f', ' dcs dv s   va sc d ', ' sd vs dv', ''),
+(110, 'vi', 'Tin nội bộ', 'd  fb gd fg ', 'nag-news', 'f b d b gb fg nf gn fg n fg nfg', ' v  bd fb g fn gn ', ' dv bd fb df', '');
 
 -- --------------------------------------------------------
 
@@ -198,17 +204,29 @@ CREATE TABLE `ap_contact` (
   `phone` varchar(20) DEFAULT NULL,
   `content` text DEFAULT NULL,
   `created_time` datetime DEFAULT current_timestamp(),
-  `title` varchar(250) DEFAULT NULL
+  `title` varchar(250) DEFAULT NULL,
+  `company` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `fax` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data for table `ap_contact`
 --
 
-INSERT INTO `ap_contact` (`id`, `fullname`, `email`, `phone`, `content`, `created_time`, `title`) VALUES
-(31, 'Đinh Văn Khương', 'khuongkoi200798@gmail.com', '0337373955', '123213213', '2019-01-24 09:59:53', NULL),
-(32, 'Đinh Văn Khương', 'khuongkoi200798@gmail.com', '0337373955', 'OK', '2019-01-24 10:01:40', NULL),
-(33, 'Đinh Văn Khương', 'khuongkoi200798@gmail.com', '0337373955', 'aaaaaaaaaaaaaaa', '2019-03-14 14:38:03', NULL);
+INSERT INTO `ap_contact` (`id`, `fullname`, `email`, `phone`, `content`, `created_time`, `title`, `company`, `address`, `fax`) VALUES
+(31, 'Đinh Văn Khương', 'khuongkoi200798@gmail.com', '0337373955', '123213213', '2019-01-24 09:59:53', NULL, '', '', ''),
+(32, 'Đinh Văn Khương', 'khuongkoi200798@gmail.com', '0337373955', 'OK', '2019-01-24 10:01:40', NULL, '', '', ''),
+(33, 'Đinh Văn Khương', 'khuongkoi200798@gmail.com', '0337373955', 'aaaaaaaaaaaaaaa', '2019-03-14 14:38:03', NULL, '', '', ''),
+(34, 'MV Hoàng', 'wertyuioo@gmail.com', '0375457674', 'wertyu ', '2019-12-19 17:40:11', NULL, 'apec', 'Thái Nguyên', 'đégdg '),
+(35, 'Nguyễn Hai', 'haing@gmail.com', '0488538458', 'qưert', '2019-12-19 17:44:09', NULL, 'd', 'Lào cai', 'd'),
+(36, 'Mông Hậu', 'dfghfg@gmail.com', '0495845465', 'rty', '2019-12-19 17:45:16', NULL, 'rty', 'Định Hóa', 'tr'),
+(37, 'Đức Hai', 'duchai@gmail.com', '0343643543', 'xcbcvb', '2019-12-19 17:47:24', NULL, 'xf', 'Đà Nẵng', 'rt'),
+(38, 'MV C D F D ', 'mvhoangcntt@gmail.com', '0987654332', '345345', '2019-12-19 17:57:45', NULL, 'rtrt', 'dfgdfgd', 'ẻt'),
+(39, 'MV C D F D ', 'mvhoangcntt@gmail.com', '0987654332', '345345', '2019-12-19 17:57:49', NULL, 'rtrt', 'dfgdfgd', 'ẻt'),
+(40, 'MV Hoang', 'mvhoangcntt@gmail.com', '0379749836', 'Co việc cần', '2019-12-20 08:50:03', NULL, 'Apect', 'Thai Nguyen', 'Fax'),
+(41, 'MV Hoang', 'mvhoangcntt@gmail.com', '0379749836', 'Co việc cần', '2019-12-20 08:50:09', NULL, 'Apect', 'Thai Nguyen', 'Fax'),
+(42, 'MV Hoang', 'mvhoangcntt@gmail.com', '0379749836', 'Co việc cần', '2019-12-20 08:50:14', NULL, 'Apect', 'Thai Nguyen', 'Fax');
 
 -- --------------------------------------------------------
 
@@ -1849,7 +1867,89 @@ INSERT INTO `ap_log_action` (`id`, `action`, `note`, `uid`, `created_time`) VALU
 (1380, 'exchange_currency', 'Delete exchange_currency: 25', 1, '2019-06-06 08:44:54'),
 (1381, 'exchange_currency', 'Delete exchange_currency: 24', 1, '2019-06-06 08:44:54'),
 (1382, 'exchange_currency', 'Delete exchange_currency: 23', 1, '2019-06-06 08:44:54'),
-(1383, 'exchange_currency', 'Delete exchange_currency: 22', 1, '2019-06-06 08:44:54');
+(1383, 'exchange_currency', 'Delete exchange_currency: 22', 1, '2019-06-06 08:44:54'),
+(1384, 'page', 'Update page: 13', 1, '2019-12-23 09:09:10'),
+(1385, 'page', 'Update page: 13', 1, '2019-12-23 09:10:14'),
+(1386, 'page', 'Update page: 13', 1, '2019-12-23 09:10:31'),
+(1387, 'page', 'Update page: 11', 1, '2019-12-23 09:10:48'),
+(1388, 'page', 'Update page: 10', 1, '2019-12-23 09:10:59'),
+(1389, 'page', 'Update page: 9', 1, '2019-12-23 09:11:12'),
+(1390, 'page', 'Update page: 8', 1, '2019-12-23 09:11:26'),
+(1391, 'page', 'Update page: 7', 1, '2019-12-23 09:11:40'),
+(1392, 'page', 'Update page: 2', 1, '2019-12-23 09:11:50'),
+(1393, 'page', 'Insert page: 0', 1, '2019-12-23 09:42:30'),
+(1394, 'page', 'Update page: 15', 1, '2019-12-23 09:43:43'),
+(1395, 'page', 'Insert page: 0', 1, '2019-12-23 10:32:14'),
+(1396, 'page', 'Update page: 16', 1, '2019-12-23 10:32:20'),
+(1397, 'news', 'Insert news: 0', 1, '2019-12-23 11:12:48'),
+(1398, 'page', 'Insert page: 0', 1, '2019-12-23 11:14:34'),
+(1399, 'page', 'Update page: 18', 1, '2019-12-23 11:15:19'),
+(1400, 'news', 'Update news: 1', 1, '2019-12-23 11:23:50'),
+(1401, 'news', 'Update news: 1', 1, '2019-12-23 11:30:39'),
+(1402, 'news', 'Update news: 3', 1, '2019-12-23 11:31:22'),
+(1403, 'page', 'Update page: 13', 1, '2019-12-23 11:31:52'),
+(1404, 'news', 'Update news: 3', 1, '2019-12-23 11:34:29'),
+(1405, 'news', 'Update news: 3', 1, '2019-12-23 11:35:20'),
+(1406, 'page', 'Update page: 13', 1, '2019-12-23 11:36:04'),
+(1407, 'page', 'Update page: 13', 1, '2019-12-23 11:36:19'),
+(1408, 'page', 'Update page: 13', 1, '2019-12-23 11:36:28'),
+(1409, 'news', 'Update news: 3', 1, '2019-12-23 11:37:59'),
+(1410, 'news', 'Update news: 3', 1, '2019-12-23 11:38:30'),
+(1411, 'category', 'Insert category: 110', 1, '2019-12-23 04:20:39'),
+(1412, 'category', 'Update category: 110', 1, '2019-12-23 05:01:56'),
+(1413, 'category', 'Update category: 109', 1, '2019-12-23 05:02:09'),
+(1414, 'news', 'Insert news: 0', 1, '2019-12-24 12:03:35'),
+(1415, 'news', 'Insert news: 0', 1, '2019-12-24 08:59:33'),
+(1416, 'news', 'Update news: 9', 1, '2019-12-24 09:00:04'),
+(1417, 'news', 'Insert news: 0', 1, '2019-12-24 09:01:01'),
+(1418, 'news', 'Insert news: 0', 1, '2019-12-24 09:07:47'),
+(1419, 'news', 'Update news: 18', 1, '2019-12-24 09:09:52'),
+(1420, 'news', 'Update news: 17', 1, '2019-12-24 09:10:30'),
+(1421, 'category', 'Update category: 109', 1, '2019-12-24 09:13:30'),
+(1422, 'category', 'Update category: 108', 1, '2019-12-24 09:13:37'),
+(1423, 'news', 'Update news: 17', 1, '2019-12-24 09:14:42'),
+(1424, 'news', 'Update news: 16', 1, '2019-12-24 09:14:52'),
+(1425, 'news', 'Update news: 17', 1, '2019-12-24 09:17:43'),
+(1426, 'news', 'Update news: 16', 1, '2019-12-24 09:51:16'),
+(1427, 'news', 'Insert news: 0', 1, '2019-12-24 10:07:47'),
+(1428, 'news', 'Insert news: 0', 1, '2019-12-24 11:01:50'),
+(1429, 'news', 'Update news: 20', 1, '2019-12-24 11:03:23'),
+(1430, 'news', 'Insert news: 0', 1, '2019-12-24 02:41:49'),
+(1431, 'news', 'Update news: 21', 1, '2019-12-24 02:45:32'),
+(1432, 'news', 'Update news: 17', 1, '2019-12-25 01:01:43'),
+(1433, 'news', 'Update news: 17', 1, '2019-12-25 01:06:24'),
+(1434, 'news', 'Update news: 20', 1, '2019-12-25 03:06:56'),
+(1435, 'news', 'Update news: 20', 1, '2019-12-25 03:07:16'),
+(1436, 'news', 'Update news: 21', 1, '2019-12-25 05:57:11'),
+(1437, 'news', 'Update news: 21', 1, '2019-12-25 05:57:16'),
+(1438, 'media_library', 'Update media_library: 5', 1, '2019-12-26 03:56:03'),
+(1439, 'media_library', 'Update media_library: 4', 1, '2019-12-26 03:56:13'),
+(1440, 'media_library', 'Update media_library: 4', 1, '2019-12-26 03:56:20'),
+(1441, 'media_library', 'Update media_library: 3', 1, '2019-12-26 03:56:41'),
+(1442, 'media_library', 'Update media_library: 3', 1, '2019-12-26 03:56:51'),
+(1443, 'media_library', 'Update media_library: 3', 1, '2019-12-26 03:57:09'),
+(1444, 'media_library', 'Update media_library: 3', 1, '2019-12-26 03:57:16'),
+(1445, 'media_library', 'Update media_library: 5', 1, '2019-12-26 03:59:04'),
+(1446, 'media_library', 'Update media_library: 5', 1, '2019-12-26 03:59:18'),
+(1447, 'media_library', 'Update media_library: 5', 1, '2019-12-26 04:05:36'),
+(1448, 'media_library', 'Update media_library: 5', 1, '2019-12-26 04:08:58'),
+(1449, 'media_library', 'Update media_library: 3', 1, '2019-12-26 04:09:14'),
+(1450, 'media_library', 'Insert media_library: 6', 1, '2019-12-26 04:13:53'),
+(1451, 'media_library', 'Update media_library: 6', 1, '2019-12-26 04:17:10'),
+(1452, 'media_library', 'Update media_library: 6', 1, '2019-12-26 04:17:32'),
+(1453, 'media_library', 'Insert media_library: 7', 1, '2019-12-26 04:18:43'),
+(1454, 'media_library', 'Update media_library: 7', 1, '2019-12-26 04:21:36'),
+(1455, 'media_library', 'Update media_library: 7', 1, '2019-12-26 04:23:57'),
+(1456, 'media_library', 'Insert media_library: 8', 1, '2019-12-26 04:24:18'),
+(1457, 'media_library', 'Update media_library: 8', 1, '2019-12-26 04:27:06'),
+(1458, 'media_library', 'Update media_library: 8', 1, '2019-12-26 04:27:11'),
+(1459, 'media_library', 'Insert media_library: 9', 1, '2019-12-26 04:35:10'),
+(1460, 'media_library', 'Insert media_library: 10', 1, '2019-12-26 04:36:47'),
+(1461, 'media_library', 'Insert media_library: 11', 1, '2019-12-26 04:41:24'),
+(1462, 'media_library', 'Update media_library: 11', 1, '2019-12-26 04:43:48'),
+(1463, 'media_library', 'Insert media_library: 12', 1, '2019-12-26 04:44:01'),
+(1464, 'media_library', 'Insert media_library: 13', 1, '2019-12-26 05:39:19'),
+(1465, 'media_library', 'Update media_library: 13', 1, '2019-12-26 05:41:38');
 
 -- --------------------------------------------------------
 
@@ -1869,6 +1969,37 @@ CREATE TABLE `ap_maker` (
 INSERT INTO `ap_maker` (`id`, `name_maker`) VALUES
 (1, 'Thái Nguyên'),
 (2, 'Hà Nội');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ap_media_library`
+--
+
+CREATE TABLE `ap_media_library` (
+  `id` int(11) NOT NULL,
+  `thumbnail` varchar(255) NOT NULL,
+  `href_video` varchar(255) NOT NULL,
+  `is_status` tinyint(2) NOT NULL,
+  `created_time` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'ngay tao',
+  `updated_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'ngay sua'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ap_media_library`
+--
+
+INSERT INTO `ap_media_library` (`id`, `thumbnail`, `href_video`, `is_status`, `created_time`, `updated_time`) VALUES
+(1, 'item-abum1.jpg', '', 1, '2019-12-26 11:16:26', '2019-12-26 12:02:10'),
+(2, 'item-abum2.jpg', '', 1, '2019-12-26 11:16:26', '2019-12-26 12:02:14'),
+(3, 'item-abum4.jpg', '', 1, '2019-12-26 11:16:37', '2019-12-26 15:57:16'),
+(4, 'item-abum3.jpg', '', 1, '2019-12-26 11:16:37', '2019-12-26 15:56:20'),
+(5, '', 'https://www.youtube.com/watch?v=KISVT8uDisw', 1, '2019-12-26 11:18:06', '2019-12-26 16:08:45'),
+(6, 'thumb/img-about2-155x110.jpg', '', 1, '2019-12-26 16:13:53', '2019-12-26 16:17:32'),
+(8, '', 'https://www.youtube.com/watch?v=YqNXc0djRUI&t=3s', 1, '2019-12-26 16:24:18', '2019-12-26 16:27:11'),
+(9, '1552818066ao2.jpg', '', 1, '2019-12-26 16:35:10', '2019-12-26 16:35:10'),
+(12, 'item-abum2.jpg', '', 1, '2019-12-26 16:44:01', '2019-12-26 16:44:01'),
+(13, '', 'https://www.youtube.com/watch?v=znp6SYVwUvk', 1, '2019-12-26 17:39:19', '2019-12-26 17:41:38');
 
 -- --------------------------------------------------------
 
@@ -1936,6 +2067,37 @@ INSERT INTO `ap_menus` (`id`, `title`, `icon`, `link`, `parent_id`, `order`, `cl
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ap_news`
+--
+
+CREATE TABLE `ap_news` (
+  `id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `thumbnail` varchar(255) NOT NULL,
+  `is_featured` int(11) NOT NULL,
+  `view` int(11) NOT NULL,
+  `is_status` int(1) NOT NULL,
+  `time_thanhlap` datetime NOT NULL,
+  `displayed_time` datetime NOT NULL,
+  `created_time` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'ngay tao',
+  `updated_time` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp() COMMENT 'ngay sua'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ap_news`
+--
+
+INSERT INTO `ap_news` (`id`, `category_id`, `thumbnail`, `is_featured`, `view`, `is_status`, `time_thanhlap`, `displayed_time`, `created_time`, `updated_time`) VALUES
+(3, 109, 'img-about2.jpg', 1, 4, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-23 11:12:48', '2019-12-25 17:35:44'),
+(16, 109, 'thumb/sl-home2-1920x880.jpg', 0, 11, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-24 08:59:32', '2019-12-25 17:28:42'),
+(17, 110, 'thumb/1553349954wgdkee_simg_de2fe0_500x500_maxb.jpg', 1, 111, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-24 09:01:01', '2019-12-26 10:51:23'),
+(19, 109, 'img-about.jpg', 0, 33, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-24 10:07:47', '2019-12-25 17:28:51'),
+(20, 110, '1552818066ao2.jpg', 0, 44, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-24 11:01:49', '2019-12-26 08:52:32'),
+(21, 109, 'thumb/intro3.png', 1, 554, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-24 14:41:48', '2019-12-26 08:52:04');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ap_newsletter`
 --
 
@@ -1957,6 +2119,67 @@ INSERT INTO `ap_newsletter` (`id`, `email`, `created_time`) VALUES
 (9, 'askeyh3t@gmail.com', '2018-06-06 09:49:32'),
 (10, 'lenganvcu96ht@gmail.com', '2018-07-30 01:23:59'),
 (22, 'nguyenminhcuong2@luvina.net', '2019-02-14 19:28:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ap_news_category`
+--
+
+CREATE TABLE `ap_news_category` (
+  `news_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ap_news_category`
+--
+
+INSERT INTO `ap_news_category` (`news_id`, `category_id`) VALUES
+(3, 109),
+(16, 109),
+(17, 110),
+(19, 109),
+(20, 110),
+(21, 109);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ap_news_translations`
+--
+
+CREATE TABLE `ap_news_translations` (
+  `id` int(11) NOT NULL,
+  `language_code` varchar(5) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` mediumtext NOT NULL,
+  `content` longtext NOT NULL,
+  `file_timeline` varchar(255) NOT NULL,
+  `content_more` longtext NOT NULL,
+  `meta_title` varchar(100) NOT NULL,
+  `meta_description` varchar(170) NOT NULL,
+  `meta_keyword` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ap_news_translations`
+--
+
+INSERT INTO `ap_news_translations` (`id`, `language_code`, `slug`, `title`, `description`, `content`, `file_timeline`, `content_more`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
+(3, 'vi', 'f-gd-g-fg-hfg-h-hh', 'Tin buổi sang', '', '<p>&nbsp;vb cv b cvb cv</p>', '', '', 'vb cv bc vb vb', 'xc  cvb cv bc', 'x c vc bcv b'),
+(3, 'en', 'cv-s-g-df', 'cv s g df', '', '<p>&nbsp;vb gb g b f vdf&nbsp;</p>', '', '', 'vcb  b  vbn fg', 'xc b cv bv nvbq', 'f b  hg  sdv'),
+(16, 'vi', 'fg-dnf-hn-dfng-ndf', 'Sản phẩm sạch', '', '<p>&nbsp;d sfnb dfnb ndf b</p>', '', '', 'fnb dfn bndf bndf', 'f bn fnbd fnb dfn', 'f bnf vnd'),
+(16, 'en', 'dv-d-vsnfb-nsd-v', 'dv d vsnfb nsd v', '', '<p>&nbsp;vn sd flfej sd</p>', '', '', 'vjfbsjdbvj', 'djvbsjbgrjwbdjvbvjabdjvb', 'sbvjsbdvjsbd'),
+(17, 'vi', 'e-ndf-jgd-fjg-j', 'TỔ HỢP SIÊU THỊ TOMITA MART VÀ NHÀ HÀNG TOMITA BENTO TƯNG BỪNG KHAI TRƯƠNG CƠ SỞ MỚI TẠI A2- SO.05 VINHOMES GARDENIA HÀM NGHI', '', '<div class=\"desc\"><img src=\"http://localhost/tomita/tomita/images/news-dt1.jpg\" alt=\"\"></div>\r\n<div class=\"s-content\">\r\n<p>Tomita Mart l&agrave; hệ thống si&ecirc;u thị thực phẩm cao cấp đ&atilde; được kh&aacute;ch h&agrave;ng tin y&ecirc;u trong suốt một năm qua. Với những chủng loại thực phẩm đa dạng c&oacute; chứng nhận hữu cơ uy t&iacute;n. H&ocirc;m nay, Tomita Mart vui mừng ch&agrave;o đ&oacute;n si&ecirc;u thị thứ 3 được đặt tại địa chỉ A2 - SO.05 Vinhomes Gardenia H&agrave;m Nghi với mong muốvn đem đến chất lượng sản phẩm v&agrave; dịch vụ tốt nhất cho cư d&acirc;n v&agrave; người ti&ecirc;u d&ugrave;ng tại khu vực n&agrave;y.</p>\r\n<p>Sau khi cho ra đời th&agrave;nh c&ocirc;ng chuỗi si&ecirc;u thị thực phẩm cao cấp Tomita Mart, C&ocirc;ng ty Cổ phần Trang trại Tomita Việt Nam tiếp tục tri&ecirc;n rkhai dự &aacute;n chuỗi nh&agrave; h&agrave;ng cơm Nhật Tomita Bento, được sử dụng ch&iacute;nh những loại thực phẩm cao cấp c&oacute; trong Tomita Mart để chế biến m&oacute;n ăn, kh&ocirc;ng phải mua nguy&ecirc;n liệu về chế biến m&agrave; vẫn c&oacute; thể thưởng thức ẩm thực Nhật Bản với nguồn thực phẩm an l&agrave;nh.</p>\r\n<p><img src=\"http://localhost/tomita/tomita/images/news-dt2.jpg\" alt=\"\"></p>\r\n<p><img src=\"http://localhost/tomita/tomita/images/news-dt3.jpg\" alt=\"\"></p>\r\n<p>Trong tuần lễ khai trương, ch&uacute;ng t&ocirc;i &aacute;p dụng chương tr&igrave;nh ưu đ&atilde;i v&ocirc; c&ugrave;ng hấp dẫn để tri &acirc;n những kh&aacute;ch h&agrave;ng đầu ti&ecirc;n đến ủng hộ. Tại Tomita Mart - H&agrave;m Nghi: Giảm từ 5% - 10% v&agrave; tặng k&egrave;m theo 1 Voucher sử dụng dịch vụ nh&agrave; h&agrave;ng Tomita Bento tại tầng 2.</p>\r\n<p>Tại Tomita Bento - H&agrave;m Nghi: Giảm 10% h&oacute;a đơn, tặng 1 Voucher sử dụng dịch vụ nh&agrave; h&agrave;ng Tomita Bento tại tầng 2, 1 Voucher 5% cho một lần mua sắm tại Tomita Mart - H&agrave;m Nghi. Cuối c&ugrave;ng, ch&uacute;ng t&ocirc;i xin ch&acirc;n th&agrave;nh cảm ơn Qu&yacute; kh&aacute;ch h&agrave;ng, Qu&yacute; đối t&aacute;c, bạn b&egrave; đ&atilde; tới chia vui, ch&uacute;c mừng, mua sắm v&agrave; thưởng thức ẩm thực Nhật Bản trong ng&agrave;y đặc biệt n&agrave;y.</p>\r\n<p>Trong tuần lễ khai trương, ch&uacute;ng t&ocirc;i &aacute;p dụng chương tr&igrave;nh ưu đ&atilde;i v&ocirc; c&ugrave;ng hấp dẫn để tri &acirc;n những kh&aacute;ch h&agrave;ng đầu ti&ecirc;n đến ủng hộ. Tại Tomita Mart - H&agrave;m Nghi: Giảm từ 5% - 10% v&agrave; tặng k&egrave;m theo 1 Voucher sử dụng dịch vụ nh&agrave; h&agrave;ng Tomita Bento tại tầng 2.</p>\r\n<p>Tại Tomita Bento - H&agrave;m Nghi: Giảm 10% h&oacute;a đơn, tặng 1 Voucher sử dụng dịch vụ nh&agrave; h&agrave;ng Tomita Bento tại tầng 2, 1 Voucher 5% cho một lần mua sắm tại Tomita Mart - H&agrave;m Nghi. Cuối c&ugrave;ng, ch&uacute;ng t&ocirc;i xin ch&acirc;n th&agrave;nh cảm ơn Qu&yacute; kh&aacute;ch h&agrave;ng, Qu&yacute; đối t&aacute;c, bạn b&egrave; đ&atilde; tới chia vui, ch&uacute;c mừng, mua sắm v&agrave; thưởng thức ẩm thực Nhật Bản trong ng&agrave;y đặc biệt n&agrave;y.</p>\r\n<p><img src=\"http://localhost/tomita/tomita/images/news-dt4.jpg\" alt=\"\"></p>\r\n<p>Trong tuần lễ khai trương, ch&uacute;ng t&ocirc;i &aacute;p dụng chương tr&igrave;nh ưu đ&atilde;i v&ocirc; c&ugrave;ng hấp dẫn để tri &acirc;n những kh&aacute;ch h&agrave;ng đầu ti&ecirc;n đến ủng hộ. Tại Tomita Mart - H&agrave;m Nghi: Giảm từ 5% - 10% v&agrave; tặng k&egrave;m theo 1 Voucher sử dụng dịch vụ nh&agrave; h&agrave;ng Tomita Bento tại tầng 2.</p>\r\n<p>Tại Tomita Bento - H&agrave;m Nghi: Giảm 10% h&oacute;a đơn, tặng 1 Voucher sử dụng dịch vụ nh&agrave; h&agrave;ng Tomita Bento tại tầng 2, 1 Voucher 5% cho một lần mua sắm tại Tomita Mart - H&agrave;m Nghi. Cuối c&ugrave;ng, ch&uacute;ng t&ocirc;i xin ch&acirc;n th&agrave;nh cảm ơn Qu&yacute; kh&aacute;ch h&agrave;ng, Qu&yacute; đối t&aacute;c, bạn b&egrave; đ&atilde; tới chia vui, ch&uacute;c mừng, mua sắm v&agrave; thưởng thức ẩm thực Nhật Bản trong ng&agrave;y đặc biệt n&agrave;y.</p>\r\n<p>Trong tuần lễ khai trương, ch&uacute;ng t&ocirc;i &aacute;p dụng chương tr&igrave;nh ưu đ&atilde;i v&ocirc; c&ugrave;ng hấp dẫn để tri &acirc;n những kh&aacute;ch h&agrave;ng đầu ti&ecirc;n đến ủng hộ. Tại Tomita Mart - H&agrave;m Nghi: Giảm từ 5% - 10% v&agrave; tặng k&egrave;m theo 1 Voucher sử dụng dịch vụ nh&agrave; h&agrave;ng Tomita Bento tại tầng 2.</p>\r\n</div>', '', '', 'Siệu thị tomita', 'Vào 9h30 ngày 09/5/2018, Lễ khai trương Tổ hợp Siêu thị thực phẩm cao cấp Tomita Mart và Nhà hàng cơm Nhật thực phẩm sạch Tomita Bento tại địa chỉ A2-SO.05 Vinhomes Garde', 'd jvsd jsd j'),
+(17, 'en', 'dbfsib-ugdurfghuduf', 'dbfsib ugdurfghuduf', '', '<p>&nbsp;vn sd flfej sd</p>', '', '', 'f gfrgifgsiudgf', 'iu ègsudgfsud', ' gfiugsd'),
+(19, 'vi', 'chat-luong-cao', 'Chất lượng cao', '', '<p>d f f dfb g</p>', '', '', 'fv df bd b df', ' dv sfv f b', ' f df df '),
+(19, 'en', 'f-v-f-d-f-bdf', 'f v f d f bdf', '', '<p>&nbsp;cv sv a s dv s</p>', '', '', 'v vs a djfsdfbj', 'v  sdv  vkc ;vj ư', 'jv ;sd jv;kcjbv;ư'),
+(20, 'vi', 'tomita-farm-chinh-thuc-khai-truong-to-hop-tomita-mart-tomita-bento-ciputra-26112018', 'TOMITA FARM CHÍNH THỨC KHAI TRƯƠNG TỔ HỢP TOMITA MART & TOMITA BENTO CIPUTRA 26/11/2018', '', '<p>Ng&agrave;y 26-11, C&ocirc;ng ty Cổ phần Trang trại Tomita Việt Nam long trọng khai trương tổ hợp Si&ecirc;u thị thực phẩm cao cấp Tomita Mart v&agrave; Nh&agrave; h&agrave;ng cơm Nhật thực phẩm sạch Tomita Bento Ciputra.</p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1453_grande.jpg\"></p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1525_grande.jpg\"></p>\r\n<p><br>Tọa lạc tại tầng 1 - t&ograve;a nh&agrave; The Link L3, KĐT Ciputra H&agrave; Nội, Xu&acirc;n Đỉnh, H&agrave; Nội, tổ hợp TOMITA MART &amp; TOMITA BENTO CIPUTRA l&agrave; sự kết hợp ho&agrave;n hảo trong chuỗi cung ứng thực phẩm hữu cơ, thực phẩm sạch từ vư<span class=\"text_exposed_show\">ờn đến b&agrave;n ăn.</span></p>\r\n<div class=\"text_exposed_show\">\r\n<p>Ch&uacute;ng t&ocirc;i ch&acirc;n th&agrave;nh cảm ơn Qu&yacute; đối t&aacute;c, Qu&yacute; kh&aacute;ch h&agrave;ng đ&atilde; y&ecirc;u mến, đến tham dự Lễ khai trương, tham quan, trải nghiệm mua sắm v&agrave; sử dụng dịch vụ tại đ&acirc;y.</p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1540_grande.jpg\"></p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1597_grande.jpg\"></p>\r\n<p>Qu&yacute; kh&aacute;ch đừng qu&ecirc;n chương tr&igrave;nh ưu đ&atilde;i lớn nhất được &aacute;p dụng tr&ecirc;n to&agrave;n hệ thống si&ecirc;u thị Tomita Mart &amp; nh&agrave; h&agrave;ng Tomita Bento vẫn đang được &aacute;p dụng.</p>\r\n</div>', '', '', 'TOMITA FARM CHÍNH THỨC KHAI TRƯƠNG', 'TOMITA FARM CHÍNH THỨC KHAI TRƯƠNG TỔ HỢP TOMITA MART & TOMITA BENTO CIPUTRA 26/11/2018', 'tomita'),
+(20, 'en', 'tomita-farm-chinh-thuc-khai-truong-to-hop-tomita-mart-tomita-bento-ciputra-26112018', 'TOMITA FARM CHÍNH THỨC KHAI TRƯƠNG TỔ HỢP TOMITA MART & TOMITA BENTO CIPUTRA 26/11/2018', '', '<p style=\"text-align: justify;\">Ng&agrave;y 26-11, C&ocirc;ng ty Cổ phần Trang trại Tomita Việt Nam long trọng khai trương tổ hợp Si&ecirc;u thị thực phẩm cao cấp Tomita Mart v&agrave; Nh&agrave; h&agrave;ng cơm Nhật thực phẩm sạch Tomita Bento Ciputra.</p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1453_grande.jpg\" style=\"display: block; margin-left: auto; margin-right: auto;\"></p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1525_grande.jpg\" style=\"display: block; margin-left: auto; margin-right: auto;\"></p>\r\n<p style=\"text-align: justify;\"><br>Tọa lạc tại tầng 1 - t&ograve;a nh&agrave; The Link L3, KĐT Ciputra H&agrave; Nội, Xu&acirc;n Đỉnh, H&agrave; Nội, tổ hợp TOMITA MART &amp; TOMITA BENTO CIPUTRA l&agrave; sự kết hợp ho&agrave;n hảo trong chuỗi cung ứng thực phẩm hữu cơ, thực phẩm sạch từ vư<span class=\"text_exposed_show\">ờn đến b&agrave;n ăn.</span></p>\r\n<div class=\"text_exposed_show\">\r\n<p style=\"text-align: justify;\">Ch&uacute;ng t&ocirc;i ch&acirc;n th&agrave;nh cảm ơn Qu&yacute; đối t&aacute;c, Qu&yacute; kh&aacute;ch h&agrave;ng đ&atilde; y&ecirc;u mến, đến tham dự Lễ khai trương, tham quan, trải nghiệm mua sắm v&agrave; sử dụng dịch vụ tại đ&acirc;y.</p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1540_grande.jpg\" style=\"display: block; margin-left: auto; margin-right: auto;\"></p>\r\n<p><img src=\"//file.hstatic.net/1000144805/file/img_1597_grande.jpg\" style=\"display: block; margin-left: auto; margin-right: auto;\"></p>\r\n<p style=\"text-align: justify;\">Qu&yacute; kh&aacute;ch đừng qu&ecirc;n chương tr&igrave;nh ưu đ&atilde;i lớn nhất được &aacute;p dụng tr&ecirc;n to&agrave;n hệ thống si&ecirc;u thị Tomita Mart &amp; nh&agrave; h&agrave;ng Tomita Bento vẫn đang được &aacute;p dụng.</p>\r\n</div>', '', '', 'TOMITA FARM CHÍNH THỨC KHAI TRƯƠNG', 'TOMITA FARM CHÍNH THỨC KHAI TRƯƠNG TỔ HỢP TOMITA MART & TOMITA BENTO CIPUTRA 26/11/2018', 'tomita'),
+(21, 'vi', 'f-dnfb-ndf', 'f dnfb ndf', '', '<p>&nbsp;fnb dfb d</p>', '', '', 'dnb dfb fd bdf', 'dv bdfb fb df', ' sf df bdfb'),
+(21, 'en', 'v-adf-gkf-bnfd-b', 'v adf gkf bnfd b', '', '<p>&nbsp;fbd fkb sdjv d&nbsp;</p>', '', '', 'vfv skd vjad vj', 'vd kv jdkc vjsdv', ' dvkjs dvj sdjv');
 
 -- --------------------------------------------------------
 
@@ -2013,7 +2236,8 @@ INSERT INTO `ap_page` (`id`, `category_id`, `style`, `thumbnail`, `banner`, `is_
 (9, 0, 'media_library', '', '', 1, NULL, '2019-06-05 19:20:05', '2019-06-05 19:20:41', '2019-01-24 11:26:37', '2019-12-16 15:58:13', NULL, NULL),
 (10, 0, 'members', '', '', 1, NULL, '2019-06-05 19:20:09', '2019-06-05 19:20:42', '2019-01-24 11:26:55', '2019-12-16 15:34:22', NULL, NULL),
 (11, 0, 'news', '', '', 1, NULL, '2019-06-05 19:20:12', '2019-06-05 19:20:45', '2019-02-17 16:30:08', '2019-12-16 15:34:29', NULL, NULL),
-(12, 0, 'special', '', '', 1, NULL, '2019-06-05 19:20:29', '2019-06-05 19:20:50', '2019-02-25 14:48:21', '2019-06-05 19:20:52', NULL, NULL);
+(13, 0, 'new-detail', 'sl-home1.jpg', 'img-about2.jpg', 1, 'e', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-22 01:23:53', '2019-12-23 11:36:28', 'e', 'e'),
+(17, 0, 'cv', '', '', 1, NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2019-12-23 10:45:44', '2019-12-23 10:45:44', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2040,18 +2264,20 @@ CREATE TABLE `ap_page_translations` (
 --
 
 INSERT INTO `ap_page_translations` (`id`, `language_code`, `slug`, `title`, `description`, `content`, `file_timeline`, `content_more`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
-(2, 'vi', 'contact', ' dfv f v f', 'vsvs dvsv sd v sd d', 'ccdssdv dvfdv dfv', 'dsfs fe e ', 's fdef sfsdf', ' fwef sfdf sd', 'df sdfsdfsd f', 'd fsd fsd '),
-(2, 'en', 'contact', ' dfv f v f', 'vsvs dvsv sd v sd d', 'ccdssdv dvfdv dfv', 'dsfs fe e ', 's fdef sfsdf', ' fwef sfdf sd', 'df sdfsdfsd f', 'd fsd fsd '),
-(7, 'vi', 'about', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(7, 'en', 'about', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(8, 'en', 'home', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(8, 'vi', 'home', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(9, 'vi', 'media_library', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(9, 'en', 'media_library', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(10, 'en', 'members', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(10, 'vi', 'members', 'g dfg', ' dfg fgd f ', 'd fgfd gd ', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
-(11, 'vi', 'news', ' df fg fg n', ' gg  n nvb', ' b d bdf b df ', 'd vdf b dfb ', 's sfb b ', '  cvb cv b', 'cv cv bc v', 'c v cv cv'),
-(11, 'en', 'news', ' df fg fg n', ' gg  n nvb', ' b d bdf b df ', 'd vdf b dfb ', 's sfb b ', '  cvb cv b', 'cv cv bc v', 'c v cv cv');
+(2, 'vi', 'contact', 'contact dfv f v f', 'vsvs dvsv sd v sd d', '<p>ccdssdv dvfdv dfv</p>', 'dsfs fe e ', 's fdef sfsdf', 'fwef sfdf sd', 'df sdfsdfsd f', 'd fsd fsd '),
+(2, 'en', 'contact', 'dfv f v f', 'vsvs dvsv sd v sd d', '<p>ccdssdv dvfdv dfv</p>', 'dsfs fe e ', 's fdef sfsdf', 'fwef sfdf sd', 'df sdfsdfsd f', 'd fsd fsd '),
+(7, 'vi', 'about', 'about g dfg', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(7, 'en', 'about', 'g dfg', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(8, 'en', 'home', 'g dfg', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(8, 'vi', 'home', 'home g dfg', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(9, 'vi', 'media_library', 'media_library', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(9, 'en', 'media_library', 'g dfg', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(10, 'en', 'members', 'g dfg', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(10, 'vi', 'members', 'members', ' dfg fgd f ', '<p>d fgfd gd</p>', 's df sdf', 'sdfsd fs', 'sf d ffg', 'á fsfdg', 'sd ggs fdgd'),
+(11, 'vi', 'news', 'news  fg df g', ' gg  n nvb', '<p>b d bdf b df</p>', 'd vdf b dfb ', 's sfb b ', 'cvb cv b', 'cv cv bc v', 'c v cv cv'),
+(11, 'en', 'news', 'df fg fg n', ' gg  n nvb', '<p>b d bdf b df</p>', 'd vdf b dfb ', 's sfb b ', 'cvb cv b', 'cv cv bc v', 'c v cv cv'),
+(13, 'en', 'new-detail', 'fg hfg h fg h fg', NULL, '<p>&nbsp;f b b fgb fg</p>', NULL, NULL, 'c v c bbcv b cv bx  vx c cv bv', 'c  xcb vc b cv b x cv x cv c vc b cv b vc  ', 'x cv c v '),
+(13, 'vi', 'new-detail', 'new-detail', NULL, '<p>d fgfd gd</p>', NULL, NULL, 'sdfsd df g df gd f gd fg d f g', 'sdf  bg fg f gh fg hf gh f gh f gh g h g hf gh f gh g hf gh f gh  g fg hf g hf gh fg h fg h fg', 'sdfsd');
 
 -- --------------------------------------------------------
 
@@ -2092,7 +2318,8 @@ CREATE TABLE `ap_post` (
 INSERT INTO `ap_post` (`id`, `id_crawler`, `category_product`, `thumbnail`, `album`, `url_video`, `is_status`, `is_featured`, `displayed_time`, `program`, `number`, `viewed`, `type`, `type_career`, `level`, `address`, `address_career`, `expiration_time`, `created_time`, `updated_time`, `files`, `salary`, `time`) VALUES
 (19, NULL, 'NULL', 'news-home4.jpg', NULL, '', 0, 0, '2019-06-05', 0, '1', 0, NULL, NULL, NULL, NULL, NULL, '2019-06-05', '2018-10-21 16:15:42', '2019-06-05 19:22:04', NULL, NULL, NULL),
 (21, NULL, 'NULL', 'news-home4.jpg', NULL, '', 1, 0, '2019-06-05', 0, '1', 0, NULL, NULL, NULL, NULL, NULL, '2019-06-05', '2018-10-25 15:59:41', '2019-06-05 19:22:07', NULL, NULL, NULL),
-(22, NULL, 'NULL', '', NULL, NULL, 1, 0, '0000-00-00', 0, '', 0, NULL, NULL, NULL, '', NULL, '0000-00-00', '2019-06-05 21:05:36', '2019-06-05 21:05:36', '', '', '');
+(22, NULL, 'NULL', '', NULL, NULL, 1, 0, '0000-00-00', 0, '', 0, NULL, NULL, NULL, '', NULL, '0000-00-00', '2019-06-05 21:05:36', '2019-06-05 21:05:36', '', '', ''),
+(23, NULL, 'NULL', '', NULL, NULL, 2, 0, '0000-00-00', 0, '1', 0, NULL, NULL, NULL, NULL, NULL, '0000-00-00', '2019-12-23 14:50:22', '2019-12-23 14:50:22', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2110,11 +2337,12 @@ CREATE TABLE `ap_post_category` (
 --
 
 INSERT INTO `ap_post_category` (`post_id`, `category_id`) VALUES
+(3, 109),
 (19, 48),
 (21, 48),
 (22, 49),
 (22, 108),
-(23, 49),
+(23, 109),
 (24, 48),
 (26, 48),
 (27, 49),
@@ -2228,7 +2456,7 @@ INSERT INTO `ap_product_translations` (`id`, `language_code`, `slug`, `title`, `
 (20, 'en', 'd-fg-dg-hg-fghf', 'd fg dg hg fghf', 's dg f g gh f', '', '', 'sd f gd h fg', 'd fg dfh gf', ' fg df hf gh'),
 (21, 'vi', 'khoi-phai-che', 'Khỏi phải chê', ' dg df g hg g', '', '', 'd f fg hfg', 'df f gh fg hf gh fg h g  hg n g', 'f bf g f'),
 (21, 'en', 'd-f-gd-gh-fgh-f-hf', 'd f gd gh fgh f hf ', ' fb gf bfg n ', '', '', 'g  bfg nfn', ' d dfb g  gn f', ' b fg bf'),
-(22, 'vi', 'hang-xin', 'Hàng xin', ' D FG DF HG ', '', '', 'A SF SFG D  D GDFG FD', ' SD DF GD G', 'SD G DF D H'),
+(22, 'vi', 'hang-xin', 'Hàng xin', ' D FG DF HG ', '', '', 'A SF SFG D  D GDFG FD', ' SD DF GD G', 'dfssdf'),
 (22, 'en', 'gdf-gh-gf-g-hf', '  GDF  GH GF G HF', '  e tte ỷ t ryy ', '', '', 'a f sg ẻ g erg e rr ge rg e r', 'SV S  DFB  B CV X', ' ZV X CV CB ');
 
 -- --------------------------------------------------------
@@ -2249,10 +2477,10 @@ CREATE TABLE `ap_size` (
 --
 
 INSERT INTO `ap_size` (`id`, `product_id`, `quantity`, `text_size`) VALUES
-(25, 22, 6, 'M'),
 (26, 21, 2, 'S'),
 (27, 21, 8, 'XL'),
-(28, 20, 2, 'S');
+(28, 20, 2, 'S'),
+(34, 22, 6, 'M');
 
 -- --------------------------------------------------------
 
@@ -2305,7 +2533,12 @@ INSERT INTO `ap_system_menu` (`id`, `text`, `icon`, `href`, `controller`, `paren
 (72, 'Quản trị nội dung', 'fa fa-newspaper-o', '#', NULL, 0, 'treeview', 28, '_self'),
 (73, 'Quản lý sản phẩm', 'fa fa-product-hunt', 'myproduct', 'myproduct', 0, NULL, NULL, NULL),
 (74, 'Quản lý hóa đơn', 'fa fa-first-order', 'orders', 'orders', 0, NULL, NULL, NULL),
-(75, 'Quản lý menu', 'fa fa-bars', 'menus', 'menus', 0, NULL, NULL, NULL);
+(75, 'Quản lý menu', 'fa fa-bars', 'menus', 'menus', 0, NULL, NULL, NULL),
+(76, 'Quản lý page', 'fa fa-link', 'page', 'page', 0, NULL, NULL, NULL),
+(77, 'Quản lý tin tức', 'fa fa-newspaper-o', 'news', 'news', 0, NULL, NULL, NULL),
+(78, 'Thể loại', 'fa fa-outdent', 'category/get_list/', 'category', 0, NULL, NULL, NULL),
+(79, 'Media', 'fa fa-picture-o', 'media', 'media', 0, NULL, NULL, NULL),
+(80, 'Quản lý thư viện', 'fa fa-camera-retro', 'media_library', 'media_library', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2344,7 +2577,7 @@ CREATE TABLE `ap_users` (
 --
 
 INSERT INTO `ap_users` (`id`, `ip_address`, `username`, `last_name`, `first_name`, `full_name`, `email`, `phone`, `password`, `salt`, `thumbnail`, `thumbnail_small`, `company`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `active`, `address`, `last_login`, `updated_time`, `created_time`) VALUES
-(1, '127.0.0.1', 'admin', 'admin', 'admin', 'Đinh Văn Khương', 'admin@gmail.com', '0973683037', '$2b$10$KGMmazsmWl7gR5KKPmiODeGgTCKgBjvfqjr5VhL6ZYmcE2uy8fOAO', '', 'author.jpg', NULL, 'Năm 1998', '', NULL, NULL, NULL, 1268889823, 1, NULL, 1576597777, '2019-01-31 17:30:53', '2017-12-17 00:49:09'),
+(1, '127.0.0.1', 'admin', 'admin', 'admin', 'Đinh Văn Khương', 'admin@gmail.com', '0973683037', '$2b$10$KGMmazsmWl7gR5KKPmiODeGgTCKgBjvfqjr5VhL6ZYmcE2uy8fOAO', '', 'author.jpg', NULL, 'Năm 1998', '', NULL, NULL, NULL, 1268889823, 1, NULL, 1577324153, '2019-01-31 17:30:53', '2017-12-17 00:49:09'),
 (59, '14.177.235.179', 'vnpt', 'vnpt', 'vnpt', NULL, 'admin@vnpt.vn', '0970709700', '$2y$08$blG8UQvv0WiI.I87t6MsEeonWmBAG8m6Ry3ac/7E1vmd4/NnXgT12', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, 1559205333, 1, NULL, 1559221690, NULL, NULL),
 (60, '', 'abc', 'abc', 'abc', 'full name', 'abc@123', '0379749836', '$2b$10$KGMmazsmWl7gR5KKPmiODeGgTCKgBjvfqjr5VhL6ZYmcE2uy8fOAO', '123', '123', '123', '1234', '1231234', '123', 123, '1234', 0, 12, '123', 123, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
@@ -2453,10 +2686,22 @@ ALTER TABLE `ap_maker`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ap_media_library`
+--
+ALTER TABLE `ap_media_library`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ap_menus`
 --
 ALTER TABLE `ap_menus`
   ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `ap_news`
+--
+ALTER TABLE `ap_news`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ap_newsletter`
@@ -2464,6 +2709,19 @@ ALTER TABLE `ap_menus`
 ALTER TABLE `ap_newsletter`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD UNIQUE KEY `ap_newsletter_email_uindex` (`email`) USING BTREE;
+
+--
+-- Indexes for table `ap_news_category`
+--
+ALTER TABLE `ap_news_category`
+  ADD PRIMARY KEY (`news_id`,`category_id`);
+
+--
+-- Indexes for table `ap_news_translations`
+--
+ALTER TABLE `ap_news_translations`
+  ADD KEY `id` (`id`),
+  ADD KEY `language_code` (`language_code`);
 
 --
 -- Indexes for table `ap_orders`
@@ -2573,13 +2831,13 @@ ALTER TABLE `ap_catalog`
 -- AUTO_INCREMENT for table `ap_category`
 --
 ALTER TABLE `ap_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `ap_contact`
 --
 ALTER TABLE `ap_contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `ap_currency`
@@ -2609,13 +2867,13 @@ ALTER TABLE `ap_groups`
 -- AUTO_INCREMENT for table `ap_login_attempts`
 --
 ALTER TABLE `ap_login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `ap_log_action`
 --
 ALTER TABLE `ap_log_action`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1384;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1466;
 
 --
 -- AUTO_INCREMENT for table `ap_maker`
@@ -2624,10 +2882,22 @@ ALTER TABLE `ap_maker`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `ap_media_library`
+--
+ALTER TABLE `ap_media_library`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `ap_menus`
 --
 ALTER TABLE `ap_menus`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2834;
+
+--
+-- AUTO_INCREMENT for table `ap_news`
+--
+ALTER TABLE `ap_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `ap_newsletter`
@@ -2645,13 +2915,13 @@ ALTER TABLE `ap_orders`
 -- AUTO_INCREMENT for table `ap_page`
 --
 ALTER TABLE `ap_page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `ap_post`
 --
 ALTER TABLE `ap_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `ap_product`
@@ -2663,7 +2933,7 @@ ALTER TABLE `ap_product`
 -- AUTO_INCREMENT for table `ap_size`
 --
 ALTER TABLE `ap_size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `ap_status`
@@ -2675,7 +2945,7 @@ ALTER TABLE `ap_status`
 -- AUTO_INCREMENT for table `ap_system_menu`
 --
 ALTER TABLE `ap_system_menu`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `ap_users`
