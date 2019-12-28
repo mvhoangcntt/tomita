@@ -17,10 +17,9 @@ class APS_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
         //Load library
-        $this->load->library(array('session', 'form_validation', 'user_agent'));
-        $this->load->helper(array('data', 'security', 'url', 'directory', 'file', 'form', 'datetime', 'language', 'debug', 'curl', 'string', 'general'));
+        $this->load->library(array('session', 'form_validation', 'user_agent','pagination'));
+        $this->load->helper(array('email','data', 'security', 'url', 'directory', 'file', 'form', 'datetime', 'language', 'debug', 'curl', 'string', 'general','status'));
         $this->config->load('languages');
         $this->lang->load('general');
         //Load database

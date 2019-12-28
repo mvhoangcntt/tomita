@@ -60,6 +60,11 @@ $lang['text_product_amount']              = 'Số lượng';
 $lang['text_product_gift']              = 'Giảm giá';
 $lang['text_product_total_price']              = 'Tổng số tiền';
 $lang['text_product_thumbnail']              = 'Hình ảnh';
+$lang['text_news_featured']              = 'Nổi bật';
+$lang['text_news_featured_id']              = 'Hoạt động nổi bật';
+$lang['text_news_all']              = 'Tất cả';
+$lang['text_news_recruitment']              = 'Tuyển dụng';
+$lang['text_news_internal']              = 'Nội bộ';
 // --- home ---
 $lang['text_myself'] = 'về chúng tôi';
 // --- about ---
@@ -103,7 +108,9 @@ $lang['btn_rename']              = 'Đổi tên';
 $lang['text_status_0']           = 'Hủy';
 $lang['text_status_1']           = 'Hiển thị';
 $lang['text_status_2']           = 'Nháp';
-
+// loại tin tức
+$lang['text_internal_0']		= 'Bản tin chung';
+$lang['text_internal_1']		= 'Bản tin nội bộ';
 // Trạng thái đơn hàng
 $lang['text_status_or_1']        = 'Chờ xác nhận';
 $lang['text_status_or_2']        = 'Chờ giao hàng';

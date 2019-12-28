@@ -62,6 +62,18 @@ if (!function_exists('getUrlNews')) {
     }
 }
 
+if (!function_exists('getSlugUrlNews')) {
+    function getSlugUrlNews($optional){
+        if(is_object($optional)) $optional = (array) $optional;
+        $id = $optional['id'];
+        $slug = $optional['slug'];
+        $linkReturn = BASE_URL;
+        $linkReturn .= "$slug-x$id";
+        if(isset($optional['page'])) $linkReturn .= '/page/';
+        return $linkReturn;
+    }
+}
+
 if (!function_exists('getUrlNextNews')) {
     function getUrlNextNews($idCurrent){
         $_this =& get_instance();

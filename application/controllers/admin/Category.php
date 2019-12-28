@@ -20,7 +20,7 @@ class Category extends Admin_Controller
         $this->_name_controller = $this->router->fetch_class();
     }
 
-    public function get_list($data)
+    public function get_list()
     {
         /*Breadcrumbs*/
         $this->breadcrumbs->push('Home', base_url());
@@ -86,10 +86,13 @@ class Category extends Admin_Controller
             $no = $this->input->post('start');
             $page = $no/$length + 1;
             $params['parent_id'] = $this->input->post('parent_id');
-            $params['category_type'] = $this->session->category_type;
+            // --- lọc theo cái type nào của category
+            // $params['category_type'] = $this->session->category_type;
+            // var_dump($params['category_type']); exit;
             $params['page'] = $page;
             $params['limit'] = $length;
             $list = $this->_data->getData($params);
+            // var_dump($list); exit;
             if(empty($this->input->post('parent_id'))){
                 $this->_queue($list);
                 $list = $this->category_tree;
@@ -108,6 +111,7 @@ class Category extends Admin_Controller
                 $row[] = $item->id;
                 $row[] = $item->order;
                 $row[] = $title;
+                $row[] = $item->type;
                 switch ($item->is_status){
                     case self::STATUS_ACTIVE:
                         $row[] = '<span class="label label-success btnUpdateStatus" data-value="'.self::STATUS_ACTIVE.'">'.$this->lang->line('text_status_'.self::STATUS_ACTIVE).'</span>';

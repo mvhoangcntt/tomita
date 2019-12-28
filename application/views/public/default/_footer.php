@@ -21,12 +21,12 @@
     </div>
 </section>
 <?php 
-$company = $this->settings['contact'][$this->session->public_lang_code]['company'];
-$address = $this->settings['contact'][$this->session->public_lang_code]['address']; 
-$phone   = $this->settings['contact'][$this->session->public_lang_code]['phone'];
-$mst     = $this->settings['contact'][$this->session->public_lang_code]['mst'];
-$time    = $this->settings['contact'][$this->session->public_lang_code]['time'];
-$phonee  = $this->settings['contact'][$this->session->public_lang_code]['phonee'];
+	$company = $this->settings['contact'][$this->session->public_lang_code]['company'];
+	$address = $this->settings['contact'][$this->session->public_lang_code]['address']; 
+	$phone   = $this->settings['contact'][$this->session->public_lang_code]['phone'];
+	$mst     = $this->settings['contact'][$this->session->public_lang_code]['mst'];
+	$time    = $this->settings['contact'][$this->session->public_lang_code]['time'];
+	$phonee  = $this->settings['contact'][$this->session->public_lang_code]['phonee'];
 ?>
 <footer>
 	<div class="footer-top">

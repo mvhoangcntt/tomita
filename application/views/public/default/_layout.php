@@ -25,17 +25,27 @@ $method = $this->router->fetch_method();
         href="<?php echo !empty($this->settings['favicon']) ? getImageThumb($this->settings['favicon'], 180, 180) : base_url("/public/favicon.ico"); ?>">
   <meta name="msapplication-TileImage"
         content="<?php echo !empty($this->settings['favicon']) ? getImageThumb($this->settings['favicon'], 270, 270) : base_url("/public/favicon.ico"); ?>">
-
-  <link href="<?php echo base_url() ?>public/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>public/fonts/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>public/fonts/elegantIcon/elegantIcon.css" type="text/css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>public/css/animate.css" type="text/css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>public/css/owl.carousel.min.css" type="text/css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>public/css/fancybox.css" type="text/css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>public/css/slick.css" type="text/css" rel="stylesheet">
-  <link href="<?php echo base_url() ?>public/css/main.css" type="text/css" rel="stylesheet">
+        
   <!-- từ đây -->
-  
+  <?php $asset_css[] = 'css/bootstrap.min.css'; ?>
+  <?php $asset_css[] = 'css/animate.css'; ?>
+  <?php $asset_css[] = 'css/owl.carousel.min.css'; ?>
+  <?php $asset_css[] = 'css/fancybox.css'; ?>
+  <?php $asset_css[] = 'css/slick.css'; ?>
+  <?php $asset_css[] = 'css/main.css'; ?>
+  <?php $asset_css[] = 'fonts/font-awesome/css/font-awesome.min.css'; ?>
+  <?php $asset_css[] = 'fonts/elegantIcon/elegantIcon.css'; ?>
+  <?php $asset_css[] = 'js/toastr/toastr.min.css'; ?>
+
+  <?php $this->minify->css($asset_css);
+  echo $this->minify->deploy_css(); ?>
+
+
+<script type="text/javascript">
+  <?php if(!empty($controller)): ?>
+    var url_save = '<?php echo site_url("$controller/post_contact"); ?>';
+  <?php endif; ?>
+</script>
 
 </head>
 <body >
@@ -47,38 +57,37 @@ $method = $this->router->fetch_method();
     ?>
 </div>
 
+
+
 <?php $asset_js[] = 'js/jquery.js'; ?>
+<?php $asset_js[] = 'js/bootstrap.min.js'; ?>
+<?php $asset_js[] = 'js/owl.carousel.min.js'; ?>
+<?php $asset_js[] = 'js/slick.min.js'; ?>
+<?php $asset_js[] = 'js/wow.min.js'; ?>
+<?php $asset_js[] = 'js/scrollspy.js'; ?>
+<?php $asset_js[] = 'js/fancybox.js'; ?>
+<?php $asset_js[] = 'js/jquery.sticky-kit.js'; ?>
+<?php $asset_js[] = 'js/script.js'; ?>
+<?php $asset_js[] = 'js/page-contact.js'; ?>
+<?php $asset_js[] = 'js/toastr/toastr.min.js'; ?>
 
 
 <?php $this->minify->js($asset_js);
 echo $this->minify->deploy_js(); ?>
 
-<?php echo !empty($this->settings['script_head']) ? $this->settings['script_head'] : '' ?>
 
+<script type="text/javascript">
+    toastr.options.escapeHtml = true;
+    toastr.options.closeButton = true;
+    toastr.options.positionClass = "toast-bottom-right";
+    toastr.options.timeOut = 5000;
+    toastr.options.showMethod = 'fadeIn';
+    toastr.options.hideMethod = 'fadeOut';
+    toastr.options.progressBar = true;
+    <?php if(!empty($this->session->flashdata('message'))): $message = $this->session->flashdata('message'); ?>
+    toastr.<?php echo $message['type']; ?>('<?php echo trim(strip_tags($message['message'])); ?>');
+    <?php endif; ?>
+</script>
 
-<?php echo !empty($this->settings['script_body']) ? $this->settings['script_body'] : '' ?>
-<!-- từ đây -->
-  <!-- <script type="text/javascript">
-    var controller = "<?php echo $controller; ?>";
-    console.log(controller);
-    $("nav.d-nav").find('li').click(function(){
-      $("nav.d-nav").find('li').attr("class","");
-      $(this).attr("class","active");
-    })
-  </script> -->
-
-
-  <script src="<?php echo base_url() ?>public/js/jquery.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/owl.carousel.min.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/slick.min.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/wow.min.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/scrollspy.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/fancybox.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/jquery.sticky-kit.js" type="text/javascript"></script>
-  <script src="<?php echo base_url() ?>public/js/script.js" type="text/javascript"></script>
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeERZGTMeCEHUw7dIEac2DPzJZUtv_PrU&callback=initMap">
-  </script>
 </body>
 </html>

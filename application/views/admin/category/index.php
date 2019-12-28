@@ -33,6 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<th>ID</th>
 								<th><?php echo lang('text_sort');?></th>
 								<th><?php echo lang('text_title');?></th>
+								<th>Type</th>
 								<th><?php echo lang('text_status');?></th>
 								<th><?php echo lang('text_created_time');?></th>
 								<th><?php echo lang('text_updated_time');?></th>

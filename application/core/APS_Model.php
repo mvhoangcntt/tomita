@@ -92,6 +92,13 @@ class APS_Model extends CI_Model
 
     if (!empty($is_featured))
       $this->db->where("$this->table.is_featured", $is_featured);
+    // if (!empty($kt))
+    //   $this->db->join($this->table_news_category, "$this->table.id = $this->table_news_category.news_id");
+    //   $this->db->join($this->table_category, "$this->table_news_category.category_id = $this->table_category.id");
+    //   $this->db->join($this->table_category_trans, "$this->table_category.id = $this->table_category_trans.id");
+    //   if (!empty($lang_code)) $this->db->where("$this->table_category_trans.language_code", $lang_code);
+    //   if (!empty($keyword)) $this->db->where("$this->table_category_trans.title", $keyword);
+
 
     if (isset($is_status))
       $this->db->where("$this->table.is_status", $is_status);
@@ -197,7 +204,7 @@ class APS_Model extends CI_Model
   public function getData($args = array(), $returnType = "object")
   {
     $this->_where($args);
-    $query = $this->db->get();
+    $query = $this->db->get();//var_dump($this->db->last_query()); exit();
     //ddQuery($this->db);
     if ($returnType !== "object") return $query->result_array(); //Check kiểu data trả về
     else return $query->result();
@@ -209,13 +216,12 @@ class APS_Model extends CI_Model
    * */
   public function getById($id, $select = '*', $lang_code = null)
   {
-
     $this->db->select($select);
     $this->db->from($this->table);
     if (!empty($this->table_trans)) $this->db->join($this->table_trans, "$this->table.id = $this->table_trans.id");
     $this->db->where("$this->table.id", $id);
     if (empty($this->table_trans)) {
-      $query = $this->db->get();var_dump($this->db->last_query()); exit();
+      $query = $this->db->get();//var_dump($this->db->last_query()); exit();
       return $query->row();
     }
 
@@ -315,12 +321,12 @@ class APS_Model extends CI_Model
     if (!empty($data)) foreach ($data as $k => $item) {
       if (!is_array($item)) $data_store[$k] = $item;
     }
-
-    if (!$this->db->insert($tablename, $data_store)) {
+    // var_dump($data_store); exit;
+    if (!$this->db->insert($tablename, $data_store)) {//var_dump($this->db->last_query()); exit();
       log_message('info', json_encode($data_store));
       log_message('error', json_encode($this->db->error()));
       return false;
-    } else {
+    } else {//var_dump($data); exit();
       $id = $this->db->insert_id();
       /*Xử lý bảng category nếu có*/
       if (!empty($this->table_category) && !empty($data['category_id']) && is_array($data['category_id'])) {

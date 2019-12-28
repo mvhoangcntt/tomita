@@ -11,7 +11,7 @@ class Order extends Admin_Controller
     {
         parent::__construct();
 
-        $this->load->library(array('ion_auth'));
+        $this->load->library(array('ion_auth','session'));
         $this->load->helper('status_order');
         //tải file ngôn ngữ
         $this->lang->load(array('order', 'column'));
@@ -270,5 +270,25 @@ class Order extends Admin_Controller
         $objWriter->save('php://output');
         exit;
     }
+    public function send_mail() { 
+        $from_email = "mvhoangcnttictu@gmail.com"; 
+        $to_email   = "mvhoangcntt@gmail.com"; 
+
+        //Load email library 
+        $this->load->library('email'); 
+
+        $this->email->from($from_email, 'Your Name'); 
+        $this->email->to($to_email);
+        $this->email->subject('Email Test'); 
+        $this->email->message('Testing the email class.'); 
+
+        //Send mail 
+        if($this->email->send()) echo "string"; 
+        else echo "Lỗi";
+        // $this->session->set_flashdata("email_sent","Email sent successfully."); 
+        
+        // $this->session->set_flashdata("email_sent","Error in sending Email."); 
+        // $this->load->view('email_form'); 
+    } 
 
 }

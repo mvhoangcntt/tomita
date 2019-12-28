@@ -1,3 +1,4 @@
+<!-- Nội bộ -->
 <section class="bn-page">
     <img src="<?php echo base_url() ?>public/images/bn-news.jpg" alt="">
     <h2 class="title-page"><?php echo lang('heading_news');?></h2>
@@ -10,14 +11,12 @@
     <div class="scale"></div>
     <div class="scale"></div>
 </section>
-<?php //$this->load->view($this->template_path."page/news/news"); ?>
-<?php //$this->load->view($this->template_path."page/news/news_details"); ?>
 <section class="page-news page-primary">
     <div class="container">
         <ul class="link-page">
-            <li class="active"><a href="<?php echo base_url('news'); ?>" title="<?php echo lang('text_news_all');?>"><?php echo lang('text_news_all');?></a></li>
+            <li><a href="<?php echo base_url('news'); ?>" title="<?php echo lang('text_news_all');?>"><?php echo lang('text_news_all');?></a></li>
             <li><a href="<?php echo base_url('news/featured'); ?>" title="<?php echo lang('text_news_featured_id');?>"><?php echo lang('text_news_featured_id');?></a></li>
-            <li><a href="<?php echo base_url('news/internal'); ?>" title="<?php echo lang('text_news_internal');?>"><?php echo lang('text_news_internal');?></a></li>
+            <li class="active"><a href="<?php echo base_url('news/internal'); ?>" title="<?php echo lang('text_news_internal');?>"><?php echo lang('text_news_internal');?></a></li>
             <li><a href="#" title="<?php echo lang('text_news_recruitment');?>"><?php echo lang('text_news_recruitment');?></a></li>
         </ul>
         <div class="list-news">

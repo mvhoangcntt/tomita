@@ -59,6 +59,7 @@ $route['account'] = 'account/index';
 $route['account/change_password'] = 'account/change_password';
 $route['account/course-create-(:num)'] = 'account/course_create/$2';
 
+
 /*Route post*/
 $route['(:any)-c(:num)'] = 'news/category/$2';
 $route['(:any)-c(:num)/page/(:num)'] = 'news/category/$2/$3';
@@ -79,5 +80,13 @@ $route['search/(:any)/page/(:num)']   	= 'search/index/$1/$2';
 $route['home/favorite'] = 'home/favorite';
 
 
-$route['(:any)'] = 'page/index/$1';
-$route['(:any)/page/(:num)'] = 'page/index/$1/$2';
+// ---- news ----
+
+// http://localhost/tomita/page/news
+// $route['(:any)-news'] = 'news/featured/$2';
+
+$route['(:any)-x(:num)'] = 'news/index/$1/$2';
+
+$route['(:any)']         = 'page/index/$1';
+$route['(:any)/(:num)']  = 'page/index/$1/$2';
+

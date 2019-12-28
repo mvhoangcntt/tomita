@@ -76,6 +76,7 @@ $method = $this->router->fetch_method();
     url_ajax_update_field = '<?php echo site_url("admin/$controller/ajax_update_field")?>',
     url_ajax_delete = '<?php echo site_url("admin/$controller/ajax_delete")?>';
     url_ajax_detail = '<?php echo site_url("admin/$controller/ajax_detail")?>';
+    url_ajax_update_filter = '<?php echo site_url("admin/$controller/ajax_update_filter")?>';
     url_ajax_detail_product = '<?php echo site_url("admin/$controller/ajax_detail_product")?>';
   <?php endif; ?>
   <?php if(!empty($this->config->item('cms_language'))) foreach ($this->config->item('cms_language') as $lang_code => $lang_name){ ?>

@@ -1,34 +1,54 @@
+<?php 
+$slide1 = getImageThumb($this->settings['home'][$this->session->public_lang_code]['image_home1'],1920,880);
+$title1 = !empty($this->settings['home'][$this->session->public_lang_code]['title1']) ? $this->settings['home'][$this->session->public_lang_code]['title1'] : '' ;
+$home_link1 = !empty($this->settings['home'][$this->session->public_lang_code]['home_link1']) ? $this->settings['home'][$this->session->public_lang_code]['home_link1'] : '' ;
+
+$slide2 = getImageThumb($this->settings['home'][$this->session->public_lang_code]['image_home2'],1920,880);
+$title2 = !empty($this->settings['home'][$this->session->public_lang_code]['title2']) ? $this->settings['home'][$this->session->public_lang_code]['title2'] : '' ;
+$home_link2 = !empty($this->settings['home'][$this->session->public_lang_code]['home_link2']) ? $this->settings['home'][$this->session->public_lang_code]['home_link2'] : '' ;
+
+$slide3 = getImageThumb($this->settings['home'][$this->session->public_lang_code]['image_home3'],1920,880);
+$title3 = !empty($this->settings['home'][$this->session->public_lang_code]['title2']) ? $this->settings['home'][$this->session->public_lang_code]['title2'] : '' ;
+$home_link3 = !empty($this->settings['home'][$this->session->public_lang_code]['home_link3']) ? $this->settings['home'][$this->session->public_lang_code]['home_link3'] : '' ;
+
+ ?>
 <section class="banner-home">
     <div class="sl-home owl-carousel">
         <div class="item">
-            <img src="<?php echo base_url() ?>public/images/sl-home1.jpg" alt="">
+            <img src="<?php echo $slide1;?>" alt="<?php echo $slide1;?>">
             <div class="ct" data-animation="animated zoomIn delay08">
                 <div class="caption">
-                    <h2 class="title">Thực phẩm hữu cơ <br> đến với tôi <br> như một mối nhân duyên</h2>
+                    <h2 class="title">
+                        <?php echo $title1; ?>
+                    </h2>
                     <div class="view-primary v2">
-                        <a href="#" title="">XEM THÊM</a>
+                        <a href="<?php echo $home_link1; ?>" title=""><?php echo lang('heading_slide');?></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="item">
-            <img src="<?php echo base_url() ?>public/images/sl-home2.jpg" alt="">
+            <img src="<?php echo $slide2;?>" alt="<?php echo $slide2;?>">
             <div class="ct" data-animation="animated zoomIn delay08">
                 <div class="caption">
-                    <h2 class="title">Thực phẩm hữu cơ <br> đến với tôi <br> như một mối nhân duyên</h2>
+                    <h2 class="title">
+                        <?php echo $title2; ?>
+                    </h2>
                     <div class="view-primary v2">
-                        <a href="#" title="">XEM THÊM</a>
+                        <a href="<?php echo $home_link2; ?>" title=""><?php echo lang('heading_slide');?></a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="item">
-            <img src="<?php echo base_url() ?>public/images/sl-home3.jpg" alt="">
+            <img src="<?php echo $slide3;?>" alt="<?php echo $slide3;?>">
             <div class="ct" data-animation="animated zoomIn delay08">
                 <div class="caption">
-                    <h2 class="title">Thực phẩm hữu cơ <br> đến với tôi <br> như một mối nhân duyên</h2>
+                    <h2 class="title">
+                        <?php echo $title3; ?>
+                    </h2>
                     <div class="view-primary v2">
-                        <a href="#" title="">XEM THÊM</a>
+                        <a href="<?php echo $home_link3; ?>" title=""><?php echo lang('heading_slide');?></a>
                     </div>
                 </div>
             </div>
@@ -87,7 +107,7 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="wrap-member">
-                    <h2 class="title-primary v2">Công ty thành viên</h2>
+                    <h2 class="title-primary v2"><?php echo lang('heading_company');?></h2>
                     <div class="member-cas owl-carousel">
                         <div class="item">
                             <div class="img">
@@ -147,51 +167,38 @@
 </section>
 <section class="news-home sec-pri">
     <div class="container">
-        <h2 class="title-primary">Tin tức</h2>
+        <h2 class="title-primary"><?php echo lang('heading_news');?></h2>
         <div class="row">
             <div class="col-lg-6">
+                <?php //var_dump($new_home);
+                //echo $new_home[0]->id; ?>
                 <div class="item-news-home v2">
                     <div class="time">
-                        <strong>28</strong>
-                        <span>04 - 2019</span>
+                        <strong><?php echo date("d",strtotime($new_home[0]->created_time));?></strong>
+                        <span><?php echo date("m-Y",strtotime($new_home[0]->created_time));?></span>
                     </div>
-                    <a href="" title="" class="img"><img src="<?php echo base_url() ?>public/images/news-home.jpg" alt=""></a>
+                    <a href="<?php echo $new_home[0]->url; ?>" title="<?php echo $new_home[0]->title; ?>" class="img"><img src="<?php echo getImageThumb($new_home[0]->thumbnail, 570, 390); ?>" alt="<?php echo $new_home[0]->title; ?>"></a>
                     <div class="ct">
-                        <h3 class="title"><a href="" title="">velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident</a></h3>
+                        <h3 class="title"><a href="<?php echo $new_home[0]->url; ?>" title="<?php echo $new_home[0]->title; ?>"><?php echo $new_home[0]->title; ?></a></h3>
                     </div>
-                    <a href="" title="" class="view-all"><span>Xem thêm <i class="fa fa-arrow-right"></i></span></a>
-                    <a href="news-details.html" title="" class="link"></a>
+                    <a href="<?php echo $new_home[0]->url; ?>" title="<?php echo $new_home[0]->title; ?>" class="view-all"><span><?php echo lang('heading_view_new');?><i class="fa fa-arrow-right"></i></span></a>
+                    <a href="<?php echo $new_home[0]->url; ?>" title="<?php echo $new_home[0]->title; ?>" class="link"></a>
                 </div>
             </div>
             <div class="col-lg-6">
+                <?php foreach ($new_home as $key => $value) { ?>
+                <?php if ($key > 0){?>    
                 <div class="item-news-home">
                     <div class="time">
-                        <strong>28</strong>
-                        <span>04 - 2019</span>
+                        <strong><?php echo date("d",strtotime($value->created_time));?></strong>
+                        <span><?php echo date("m-Y",strtotime($value->created_time));?></span>
                     </div>
                     <div class="ct">
-                        <h3 class="title"><a href="news-details.html" title="">velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident</a></h3>
+                        <h3 class="title"><a href="<?php echo $value->url; ?>" title="<?php echo $value->title; ?>"><?php echo $value->title; ?></a></h3>
                     </div>
                 </div>
-                <div class="item-news-home">
-                    <div class="time">
-                        <strong>25</strong>
-                        <span>04 - 2019</span>
-                    </div>
-                    <div class="ct">
-                        <h3 class="title"><a href="news-details.html" title="">velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident</a></h3>
-                    </div>
-                </div>
-                <div class="item-news-home">
-                    <div class="time">
-                        <strong>11</strong>
-                        <span>04 - 2019</span>
-                    </div>
-                    <div class="ct">
-                        <h3 class="title"><a href="news-details.html" title="">velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident</a></h3>
-                    </div>
-                </div>
-                <a href="news.html" title="" class="view-all"><span>Xem tất cả</span></a>
+                <?php }} ?>
+                <a href="<?php echo base_url('news'); ?>" title="<?php echo lang('heading_view_new_all');?>" class="view-all"><span><?php echo lang('heading_view_new_all');?></span></a>
             </div>
         </div>
     </div>

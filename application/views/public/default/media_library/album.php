@@ -13,8 +13,8 @@
 <section class="page-media page-primary">
     <div class="container">
         <ul class="link-page">
-            <li class="active"><a href="" title="">Tất cả</a></li>
-            <li><a href="<?php echo base_url('media_library/album/'); ?>" title="">hình ảnh</a></li>
+            <li><a href="" title="">Tất cả</a></li>
+            <li class="active"><a href="<?php echo base_url('media_library/album/'); ?>" title="">hình ảnh</a></li>
             <li><a href="<?php echo base_url('media_library/video/'); ?>" title="">video</a></li>
         </ul>
         <div class="row">

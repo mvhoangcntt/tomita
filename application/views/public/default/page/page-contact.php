@@ -1,6 +1,13 @@
+<?php 
+    $company = $this->settings['contact'][$this->session->public_lang_code]['company'];
+    $address = $this->settings['contact'][$this->session->public_lang_code]['address']; 
+    $phone   = $this->settings['contact'][$this->session->public_lang_code]['phone'];
+    $office     = $this->settings['contact'][$this->session->public_lang_code]['office'];
+    $website     = $this->settings['contact'][$this->session->public_lang_code]['website'];
+?>
 <section class="bn-page">
     <img src="<?php echo base_url() ?>public/images/bn-contact.jpg" alt="">
-    <h2 class="title-page">Liên hệ</h2>
+    <h2 class="title-page"><?php echo lang('heading_contact');?></h2>
     <div class="pr-mouse">
         <div class="mouse">
             <div class="scroll"></div>
@@ -15,59 +22,60 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="info-contact">
-                    <h2 class="head-contact">Thông tin liên hệ</h2>
-                    <h3 class="name">CÔNG TY CỔ PHẦN TRANG TRẠI TOMITA VIỆT NAM TOMITA FARM.,JSC</h3>
+                    <h2 class="head-contact"><?php echo lang('heading_head_contact');?></h2>
+                    <h3 class="name"><?php echo !empty($company)? $company : ''; ?></h3>
                     <ul>
-                        <li><b>Trụ sở chính:</b> Thôn Nhuế, Xã Kim Chung, Huyện Đông Anh, Hà Nội</li>
-                        <li><b>Văn phòng đại diện:</b> B2-BT5 Lưu Hữu Phước, Mỹ Đình 2, Hà Nội</li>
-                        <li><b>Website:</b> <a href="http://tomitafarm.vn/" title="" target="__blank">www.tomitafarm.vn</a></li>
-                        <li><b>Điện thoại:</b> <a href="tel:+842432001930" title="">(+84) 243 200 1930</a></li>
+                        <li><b><?php echo lang('heading_headquarters');?>:</b> <?php echo !empty($address)? $address : ''; ?></li>
+                        <li><b><?php echo lang('heading_office');?>:</b> <?php echo !empty($office)? $office : ''; ?></li>
+                        <li><b><?php echo lang('heading_website');?>:</b> <a href="<?php echo !empty($website)? $website : ''; ?>" title="<?php echo !empty($website)? $website : ''; ?>" target="__blank"><?php echo !empty($website)? $website : ''; ?></a></li>
+                        <li><b><?php echo lang('heading_phone');?>:</b> <a href="<?php echo !empty($phone)? $phone : ''; ?>" title="<?php echo !empty($phone)? $phone : ''; ?>"><?php echo !empty($phone)? $phone : ''; ?></a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-contact">
+                    <?php echo form_open('',['id'=>'form','class'=>'']) ?>
                     <h2 class="head-contact">liên hệ với chúng tôi</h2>
                     <div class="row col-mar-10">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Họ và tên">
+                                <input type="text" name="fullname" class="form-control" placeholder="Họ và tên">
                                 <i class="icon_profile"></i>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" name="email" class="form-control" placeholder="Email">
                                 <i class="icon_mail"></i>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Địa chỉ">
+                                <input type="text" name="address" class="form-control" placeholder="Địa chỉ">
                                 <i class="icon_pin"></i>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Điện thoại">
+                                <input type="tel" name="phone" class="form-control" placeholder="Điện thoại">
                                 <i class="icon_phone"></i>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="tel" class="form-control" placeholder="Fax">
+                                <input type="tel" name="fax" class="form-control" placeholder="Fax">
                                 <i class="icon_printer-alt"></i>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Công ty">
+                                <input type="text" name="company" class="form-control" placeholder="Công ty">
                                 <i class="icon_toolbox"></i>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <textarea rows="3" class="form-control" placeholder="Nội dung liên hệ"></textarea>
+                                <textarea rows="3" name="content" class="form-control" placeholder="Nội dung liên hệ"></textarea>
                             </div>
                         </div>
                     </div>
@@ -77,9 +85,10 @@
                             <div class="g-recaptcha" data-sitekey="6LcnESYTAAAAABNZAdIbC71wPnutdlrhTrMmzENZ"></div>
                         </div>
                         <div class="view-primary v3">
-                            <a href="#" title="">Gửi</a>
+                            <a onclick="save()" title="">Gửi</a>
                         </div>
                     </div>
+                    <?php echo form_close() ?>
                 </div>
             </div>
         </div>
@@ -88,3 +97,6 @@
 <div class="map">
     <div id="map"></div>     
 </div>
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeERZGTMeCEHUw7dIEac2DPzJZUtv_PrU&callback=initMap">
+</script>

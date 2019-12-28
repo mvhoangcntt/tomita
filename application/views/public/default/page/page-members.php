@@ -1,6 +1,6 @@
 <section class="bn-page">
     <img src="<?php echo base_url() ?>public/images/bn-members.jpg" alt="">
-    <h2 class="title-page">Sở hữu các thương hiệu</h2>
+    <h2 class="title-page"><?php echo lang('heading_members');?></h2>
     <div class="pr-mouse">
         <div class="mouse">
             <div class="scroll"></div>

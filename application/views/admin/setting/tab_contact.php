@@ -31,8 +31,22 @@
                                        class="form-control" type="text"
                                        value="<?php echo !empty($contact[$lang_code]['address']) ? $contact[$lang_code]['address'] : ''; ?>"/>
                             </div>
+                            <div class="form-group">
+                                <label>Văn phòng đại diện</label>
+                                <input name="contact[<?php echo $lang_code; ?>][office]"
+                                       placeholder="Địa chỉ"
+                                       class="form-control" type="text"
+                                       value="<?php echo !empty($contact[$lang_code]['office']) ? $contact[$lang_code]['office'] : ''; ?>"/>
+                            </div>
                         </div>
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Website </label>
+                                <input name="contact[<?php echo $lang_code; ?>][website]"
+                                       placeholder="Địa chỉ"
+                                       class="form-control" type="text"
+                                       value="<?php echo !empty($contact[$lang_code]['website']) ? $contact[$lang_code]['website'] : ''; ?>"/>
+                            </div>
                             <div class="form-group">
                                 <label>Điện thoại(Bàn)</label>
                                 <input name="contact[<?php echo $lang_code; ?>][phone]"

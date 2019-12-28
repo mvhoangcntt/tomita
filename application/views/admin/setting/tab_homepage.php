@@ -16,7 +16,7 @@
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Hình slide 1 :</label>
+                            <label>Hình slide 1 (1920 x 880px):</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon" onclick="chooseImage('home1')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
                                 <input id="home1"
@@ -37,7 +37,7 @@
                                value="<?php echo !empty($home[$lang_code]['home_link1']) ? $home[$lang_code]['home_link1'] : ''; ?>"/>
                         </div>
                         <div class="col-md-6">
-                            <label>Hình slide 2 :</label>
+                            <label>Hình slide 2 (1920 x 880px):</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon" onclick="chooseImage('home2')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
                                 <input id="home2" 
@@ -61,7 +61,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Hình slide 3 :</label>
+                            <label>Hình slide 3 (1920 x 880px):</label>
                             <div class="input-group input-group-lg">
                                 <span class="input-group-addon" onclick="chooseImage('home3')"><i class="fa fa-fw fa-image"></i><?php echo lang('btn_select_image');?></span>
                                 <input id="home3" 

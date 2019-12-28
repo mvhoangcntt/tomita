@@ -148,6 +148,7 @@ function edit_form(id)
                     $("option.filter_catalog").remove();
                     $("select.filter_catalog").append("<option class='filter_catalog' value="+data.catalog['id']+">"+data.catalog['name_catalog']+"</option>");    
                 }
+                $('[name="meta_keyword['+value.language_code+']"]').tagsinput('add', value.meta_keyword);
             });
             for(var key in data.trans){
                 // console.log(data.trans[key]);

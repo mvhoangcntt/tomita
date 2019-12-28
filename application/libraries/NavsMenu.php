@@ -484,6 +484,9 @@ class NavsMenu
   {
     $segment = $this->ci->uri->segment($this->uri_segment);
     $full_url = site_url(uri_string());
+    if ($full_url === site_url("new-detail")) {
+      $full_url = site_url("news");
+    }
     if (($this->item_active != '' && $slug == $this->item_active && empty($segment)) || $segment == $slug || $slug == $full_url) {
       $doc = new DOMDocument();
       $doc->loadHTML($html);

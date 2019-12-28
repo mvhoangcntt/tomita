@@ -3,6 +3,26 @@
 $lang['heading_title']          = 'Danh sách bài viết';
 $lang['heading_title_add']      = 'Thêm sản phẩm';
 $lang['heading_title_edit']     = 'Sửa bài viết';
+$lang['heading_slide']     = 'XEM THÊM';
+$lang['heading_company']     = 'CÔNG TY THÀNH VIÊN';
+$lang['heading_members']     = 'SỞ HỮU CÁC THƯƠNG HIỆU';
+
+$lang['heading_library']     = 'Thư viện';
+
+$lang['heading_news']     = 'Tin tức';
+
+$lang['heading_contact']     = 'Liên hệ';
+$lang['heading_view_new']     = 'Xem thêm';
+$lang['heading_view_new_all']     = 'Xem tất cả';
+$lang['heading_view_new_Related_to']     = 'tin liên quan';
+
+
+$lang['heading_head_contact']     = 'Thông tin liên hệ';
+$lang['heading_headquarters']     = 'Trụ sở chính';
+$lang['heading_office']     = 'Văn phòng đại diện';
+$lang['heading_website']     = 'Website';
+$lang['heading_phone']     = 'Số điện thoại';
+
 
 // home
 $lang['from_registration']      = 'Đăng ký nhận ưu đãi hàng tháng';
